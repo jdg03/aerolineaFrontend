@@ -1,4 +1,5 @@
 @extends('base')
+@include('includes/navbar')
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-start flex-wrap">

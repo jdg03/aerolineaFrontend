@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DestinoController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,4 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
