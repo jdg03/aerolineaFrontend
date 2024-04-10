@@ -1,12 +1,12 @@
 @extends('base')
 @section('content')
     <div class="container">
-        <div class="card shadow my-auto">
+        <div class="card mt-5 shadow my-auto">
             <div class="card-header bg-primary text-white">
                 Proximo vuelo
             </div>
             <div class="card-body">
-                dqwd
+                
                 <a href="" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar Vuelo</a>
             </div>
         </div>

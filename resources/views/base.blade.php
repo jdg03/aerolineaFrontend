@@ -20,7 +20,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse text-white" id="navbarNav">
+            <div class="collapse navbar-collapse text-white d-flex justify-content-between align-items-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="btn btn-outline-primary rounded-pill text-white border-0 me-3" href="#">Vuelos</a>
@@ -33,8 +33,12 @@
                         <a class="btn btn-outline-primary rounded-pill text-white border-0 me-3" href="">Precios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        <a class="btn btn-outline-primary rounded-pill text-white border-0 me-3" href="/">Comprar Ticket</a>
                     </li>
+                </ul>
+                <ul>
+                    <a href="" class="btn btn-outline-light me-2">Iniciar Sesion</a>
+                    <a href="" class="btn btn-primary">Crear Cuenta</a>
                 </ul>
             </div>
         </div>
