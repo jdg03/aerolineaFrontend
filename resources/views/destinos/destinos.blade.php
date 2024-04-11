@@ -1,8 +1,9 @@
 @extends('base')
 @include('includes/navbar')
 @section('content')
-    <div class="container">
-        <div class="d-flex justify-content-start flex-wrap">
+    <div class="container mx-auto">
+        <h1 class="text-secondary display-3 my-5">Proximos Destinos</h1>
+        <div class="d-flex bg-light p-5 my-5 mx-auto justify-content-start flex-wrap">
             <div class="card m-3 shadow">
                 <div class="card-header text-white bg-success">
                     <h4>Puerto Rico</h4>

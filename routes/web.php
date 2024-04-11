@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DestinoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AvionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 });
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/aeronaves', [AvionController::class, 'index'])->name('aviones');
+Route::post('/guardar-aeronave', [AvionController::class, 'agregarAeronave'])->name('guardarAeronave');
