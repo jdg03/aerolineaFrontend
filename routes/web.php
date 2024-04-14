@@ -3,6 +3,9 @@
 use App\Http\Controllers\DestinoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AvionController;
+use App\Http\Controllers\compraController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
+
 Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
+
 Route::get('/aeronaves', [AvionController::class, 'index'])->name('aviones');
 Route::post('/guardar-aeronave', [AvionController::class, 'agregarAeronave'])->name('guardarAeronave');
+
+Route::get('/comprarBoletos', [compraController::class, 'index'])->name('compraBoletos');
+

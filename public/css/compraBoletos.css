@@ -1,0 +1,70 @@
+.contenedor {
+    height: 80vh;
+    padding: 1%;
+
+  }
+
+  .lado-izquierdo{
+
+    background-color: rgb(244, 248, 235);
+    padding-top: 10%;
+    border-top-left-radius: 340px; 
+    border-top-right-radius: 340px;
+    
+  }
+  .ventanas{
+
+    padding-bottom: 10%;
+    background-color: black;
+    margin: 4%;
+    border-top-left-radius: 400px; 
+    border-top-right-radius: 400px;
+  }
+
+  .contenedor-asientos{
+
+    max-height: 300px; /* ajusta esta altura según tus necesidades */
+    overflow-y: auto;
+    padding: 3%;
+    margin-left: 7% !important;
+  }
+ 
+
+  .asientos{
+    
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+
+    margin: 1%;
+    padding: 5%;
+    border: 2px solid black;
+
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .asientos:hover{
+
+    transform: scale(1.1) 
+  }
+  
+
+
+  .lado-derecho{
+
+    background-color: rgba(217, 231, 231, 0.5);
+    padding: 5%;
+    border-radius: 20%;
+    
+  }
+
+  .lado-derecho h3 {
+    text-align: center;
+  }
+
+  
+

@@ -24,7 +24,7 @@
                         href="">Precios</a>
                 </li>
                 <li class="nav-item">
-                    <a  href="{{ route('login') }}" class="btn  rounded-pill text-white border-0 me-3" href="/">Comprar
+                    <a  href="{{ route('compraBoletos') }}" class="btn  rounded-pill text-white border-0 me-3" href="/">Comprar
                         Ticket</a>
                 </li>
             </ul>
