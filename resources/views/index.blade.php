@@ -1,17 +1,42 @@
 @extends('base')
 @include('includes/navbar')
+
+<head>
+    
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+</head>
+
 @section('content')
-    <div class="container">
-        <div class="card mt-5 shadow my-auto">
-            <div class="card-header bg-primary text-white">
-                Proximo vuelo
+    
+    <div class="container contenedor">
+
+        <div class="contenedor1">
+
+
+            <div class="info">
+                <h3>Mayan Airlines</h3>
+          
+                <p>
+                    Nuestra misión es conectar a las personas con sus sueños de viaje. Creemos que volar debe ser una experiencia placentera y accesible para todos.
+                </p>
             </div>
-            <div class="card-body">
-                
-                <a href="" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar Vuelo</a>
-            </div>
+
+            
         </div>
+
+        <div class="contenedor2">
+            <a href="" class="btn btn-outline-light me-2">Comprar boleto</a>
+        </div>
+        
+        
     </div>
+
+
+
+
+
+
+
 
 
     <!-- Modal -->

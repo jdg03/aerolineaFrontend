@@ -1,0 +1,23 @@
+
+body {
+    background:linear-gradient(135deg, #172a74, #21a9af);
+    font-family:'Source Sans Pro', sans-serif;
+    height: 100vh;
+  
+  }
+
+  .navbar{
+
+    font-family:'Source Sans Pro', sans-serif;
+    margin-bottom: 2%;
+
+  }
+
+  .btn:hover {
+    transform: scale(1.1) !important;
+  }
+
+
+  
+
+

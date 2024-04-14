@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-primary bg-dark">
+<nav class="navbar navbar-expand-lg bg-body-primary">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
             <img src="{{ asset('images/logo.png') }}" class="me-2" alt="" width="70px">
@@ -12,25 +12,29 @@
             id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary rounded-pill text-white border-0 me-3"
+                    <a class="btn rounded-pill text-white border-0 me-3"
                         href="#">Vuelos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary rounded-pill text-white border-0 me-3"
+                    <a class="btn  rounded-pill text-white border-0 me-3"
                         href="{{ route('destinos') }}">Destinos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary rounded-pill text-white border-0 me-3"
+                    <a class="btn  rounded-pill text-white border-0 me-3"
                         href="">Precios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary rounded-pill text-white border-0 me-3" href="/">Comprar
+                    <a  href="{{ route('login') }}" class="btn  rounded-pill text-white border-0 me-3" href="/">Comprar
                         Ticket</a>
                 </li>
             </ul>
-            <ul>
-                <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Iniciar Sesion</a>
-                <a href="" class="btn btn-primary">Crear Cuenta</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Iniciar Sesion</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="btn btn-outline-light me-2">Crear Cuenta</a>
+                 </li>
             </ul>
         </div>
     </div>
