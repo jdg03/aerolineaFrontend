@@ -2,41 +2,45 @@
 
     width: 100%;
     border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+   
 
   }
   .tabla-vuelo th, .tabla-vuelo td {
    
-    padding: 8px;
+    padding: 0.5%;
     
     
   }
+  
   .tabla-vuelo th {
     background-color: #1E7D9A;
     color: white;
   }
   .tabla-vuelo .origen {
-    background-color: #66B2FF;
+   
   }
   .tabla-vuelo .encabezado {
-    background-color: #1E7D9A;
+    
     color: white;
   }
 
-  .btn-comprar{
-    background-color: #209CA9; /* Color del botón */
+  .comprar{
+    
       border: none;
       border-radius: 10px;
       color: white; /* Color del texto */
-      padding: 20px 25px;
+      padding: 15px 20px;
       text-align: right;
       display: inline-block;
       font-size: 16px;
-      margin: 4px 2px;
+      text-decoration: none;
       cursor: pointer;
       transition-duration: 0.4s;
   }
 
 
-  .btn-comprar:hover{
-    background-color: #1D7396;
+  .comprar:hover{
+    color: #1D7396;
+    transform: scale(1.1) 
   }

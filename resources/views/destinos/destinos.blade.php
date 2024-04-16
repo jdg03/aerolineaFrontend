@@ -13,7 +13,7 @@
 
         <div class="d-flex p-5 my-5 mx-auto justify-content-start flex-wrap">
 
-            <div class="card m-3 shadow">
+            <div class="">
 
                 <table class="tabla-vuelo">
                     <tr class="encabezado">
@@ -25,6 +25,7 @@
                       <th>Hora de llegada</th>
                       <th>Aeronave</th>
                       <th>Estado</th>
+                      <th></th>
                     </tr>
                     <tr>
 
@@ -35,8 +36,8 @@
                       <td>25 Sep 2020 4:24 PM</td>
                       <td class="aeronave">Canadair Regional Jet700</td>
                       <td class="estado">Retrasado</td>
-                      <td class="estado">
-                        <button type="submit" class="btn-comprar">Comprar</button>
+                      <td >
+                        <a type="submit" class="comprar">Comprar</a>
                       </td>
                       
                         
