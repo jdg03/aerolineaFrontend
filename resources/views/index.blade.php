@@ -22,8 +22,8 @@
             </div>
         </div>
 
-        <div class="contenedor2">
-            <a href="{{ route('compraBoletos') }}" class="btn btn-outline-light">Comprar boleto</a>
+        <div class="text-center">
+            <a href="{{ route('compraBoletos') }}" class="btn btn-outline-light btn-lg">Comprar boleto</a>
         </div>
         
         
