@@ -33,7 +33,7 @@
                     <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Iniciar Sesion</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="btn btn-outline-light me-2">Crear Cuenta</a>
+                    <a href="{{route('sign')}}" class="btn btn-outline-light me-2">Crear Cuenta</a>
                  </li>
             </ul>
         </div>
