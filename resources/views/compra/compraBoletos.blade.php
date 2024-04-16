@@ -143,7 +143,7 @@
 
           </div>
 
-          <div class="pasillo col-md-1">
+          <div class="pasillo col-md-2">
 
           </div>
 

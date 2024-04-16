@@ -1,89 +1,51 @@
 @extends('base')
 @include('includes/navbar')
+
+<head>
+
+    <link rel="stylesheet" href="{{ asset('css/destinos.css') }}">
+</head>
+
+
 @section('content')
     <div class="container mx-auto">
         <h1 class="text-secondary display-3 my-5">Proximos Destinos</h1>
+
         <div class="d-flex bg-light p-5 my-5 mx-auto justify-content-start flex-wrap">
+
             <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
+
+                <table class="tabla-vuelo">
+                    <tr class="encabezado">
+
+                      <th>Vuelo</th>
+                      <th>Origen</th>
+                      <th>Hora de Salida</th>
+                      <th>Destino</th>
+                      <th>Hora de llegada</th>
+                      <th>Aeronave</th>
+                      <th>Estado</th>
+                    </tr>
+                    <tr>
+
+                      <td>UA 6101</td>
+                      <td class="origen">LGA, New York</td>
+                      <td>25 Sep 2020 2:59 PM</td>
+                      <td class="origen">IAD, Washington DC</td>
+                      <td>25 Sep 2020 4:24 PM</td>
+                      <td class="aeronave">Canadair Regional Jet700</td>
+                      <td class="estado">Retrasado</td>
+                        
+                    </tr>
+                    <!-- Repiten las filas siguientes para cada vuelo en la tabla -->
+                    
+                </table>
+                
             </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
-            <div class="card m-3 shadow">
-                <div class="card-header text-white bg-success">
-                    <h4>Puerto Rico</h4>
-                </div>
-                <div class="card-body">
-                    Disfruta de tu proximo destino
-                </div>
-            </div>
+
         </div>
+            
+        <button type="submit" class="btn-comprar">Comprar</button>
+
     </div>
 @endsection
