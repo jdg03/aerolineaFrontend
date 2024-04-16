@@ -9,9 +9,9 @@
 
 @section('content')
     <div class="container mx-auto">
-        <h1 class="text-secondary display-3 my-5">Proximos Destinos</h1>
+        <h1 style="color: aliceblue"> Proximos Destinos</h1>
 
-        <div class="d-flex bg-light p-5 my-5 mx-auto justify-content-start flex-wrap">
+        <div class="d-flex p-5 my-5 mx-auto justify-content-start flex-wrap">
 
             <div class="card m-3 shadow">
 
@@ -35,8 +35,14 @@
                       <td>25 Sep 2020 4:24 PM</td>
                       <td class="aeronave">Canadair Regional Jet700</td>
                       <td class="estado">Retrasado</td>
+                      <td class="estado">
+                        <button type="submit" class="btn-comprar">Comprar</button>
+                      </td>
+                      
                         
                     </tr>
+
+                    
                     <!-- Repiten las filas siguientes para cada vuelo en la tabla -->
                     
                 </table>
@@ -45,7 +51,7 @@
 
         </div>
             
-        <button type="submit" class="btn-comprar">Comprar</button>
+        
 
     </div>
 @endsection
