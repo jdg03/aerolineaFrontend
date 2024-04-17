@@ -8,12 +8,13 @@
 
 
 @section('content')
-    <div class="container mx-auto">
-        <h1 style="color: aliceblue"> Proximos Destinos</h1>
+    <div class="container">
 
-        <div class="d-flex p-5 my-5 mx-auto justify-content-start flex-wrap">
+        <h1 class="titulo"> Proximos Destinos</h1>
 
-            <div class="">
+        <div class="datos">
+
+            <!--<div class="">-->
 
                 <table class="tabla-vuelo">
                     <tr class="encabezado">
@@ -48,7 +49,7 @@
 
                 </table>
 
-            </div>
+            <!--</div>-->
 
         </div>
 
