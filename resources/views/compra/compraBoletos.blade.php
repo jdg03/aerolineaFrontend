@@ -206,7 +206,7 @@
 
     <div class="lado-derecho col-md-6">
 
-      <h3> información del aciento</h3>
+      <h3> información del asiento</h3>
 
     </div>
 

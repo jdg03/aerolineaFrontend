@@ -42,5 +42,6 @@
 
   .comprar:hover{
     color: #1D7396;
-    transform: scale(1.1) 
+    transform: scale(1.1);
+     
   }
