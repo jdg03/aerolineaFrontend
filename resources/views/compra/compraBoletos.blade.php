@@ -12,207 +12,329 @@
 
   <div class="row">
 
-    <div class="lado-izquierdo col-md-5">
+        <div class="lado-izquierdo col-md-5">
 
-      <div class="ventanas">
+          <div class="ventanas">       
+          </div>
+        
 
-
-       
-      </div>
-     
-
-      <div class="contenedor-asientos">
-        <div class="row">
-
-          <div class="asientos-izquierdos col-md-5">
-
-            <div class="row">
-
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              
-
-
+          <div class="contenedor-asientos">
+            
+            <div class="col asientos">
+              1
             </div>
-
-          </div>
-
-          <div class="pasillo col-md-2">
-
-          </div>
-
-          <div class="sasientos-derechos col-md-5">
-
-            <div class="row">
-
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-              <div class="col-md-2 asientos">
-                1
-              </div>
-
-              <div class="col-md-2 asientos">
-                2
-              </div>
-
-              <div class="col-md-2 asientos">
-                3
-              </div>
-
+            <div class="col asientos">
+              2
             </div>
+            <div class="col asientos">
+              3
+            </div>
+            <div class="col asientos">
+              4
+            </div>
+            <div class="col asientos">
+              5
+            </div>
+            
+            <div class="col asientos">
+              6
+            </div>
+            <div class="col asientos">
+              7
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            <div class="col asientos">
+              1
+            </div>
+            <div class="col asientos">
+              2
+            </div>
+            <div class="col asientos">
+              3
+            </div>
+            <div class="col asientos">
+              4
+            </div>
+            <div class="col asientos">
+              5
+            </div>
+            <div class="col asientos">
+              6
+            </div>
+            <div class="col asientos">
+              7
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            <div class="col asientos">
+              1
+            </div>
+            <div class="col asientos">
+              2
+            </div>
+            <div class="col asientos">
+              3
+            </div>
+            <div class="col asientos">
+              4
+            </div>
+            <div class="col asientos">
+              5
+            </div>
+            <div class="col asientos">
+              6
+            </div>
+            <div class="col asientos">
+              7
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            <div class="col asientos">
+              1
+            </div>
+            <div class="col asientos">
+              2
+            </div>
+            <div class="col asientos">
+              3
+            </div>
+            <div class="col asientos">
+              4
+            </div>
+            <div class="col asientos">
+              5
+            </div>
+            <div class="col asientos">
+              6
+            </div>
+            <div class="col asientos">
+              7
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            <div class="col asientos">
+              1
+            </div>
+            <div class="col asientos">
+              2
+            </div>
+            <div class="col asientos">
+              3
+            </div>
+            <div class="col asientos">
+              4
+            </div>
+            <div class="col asientos">
+              5
+            </div>
+            <div class="col asientos">
+              6
+            </div>
+            <div class="col asientos">
+              7
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            <div class="col asientos">
+              1
+            </div>
+            <div class="col asientos">
+              2
+            </div>
+            <div class="col asientos">
+              3
+            </div>
+            <div class="col asientos">
+              4
+            </div>
+            <div class="col asientos">
+              5
+            </div>
+            <div class="col asientos">
+              6
+            </div>
+            <div class="col asientos">
+              7
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            <div class="col asientos">
+              1
+            </div>
+            <div class="col asientos">
+              2
+            </div>
+            <div class="col asientos">
+              3
+            </div>
+            <div class="col asientos">
+              4
+            </div>
+            <div class="col asientos">
+              5
+            </div>
+            <div class="col asientos">
+              6
+            </div>
+            <div class="col asientos">
+              7
+            </div>
+            <div class="col asientos">
+              8
+            </div>
+            <div class="col asientos">
+              9
+            </div>
+            <div class="col asientos">
+              10
+            </div>
+            <div class="col asientos">
+              11
+            </div>
+            <div class="col asientos">
+              12
+            </div>
+            
 
           </div>
+      
+        </div>
+
+        <div class="col-md-1">
 
         </div>
 
+
+        <div class="lado-derecho col-md-6">
+
+
+          <div class="imagen">
+          
+          </div>
+
+          <div class="informacion-asiento">
+
+            <div>
+              <div class="">
+                <label>Número de asiento:</label>
+                <span id="numero-asiento">-</span>
+              </div>
+              <div class="">
+                <label>Clase:</label>
+                <span id="clase">-</span>
+              </div>
+              <div class="">
+                <label>Precio:</label>
+                <span id="precio">-</span>
+              </div>
+            </div>
+
+            <div class="contenedor-boton">
+              <a  href="" class="btn btn-outline-light btn-lg"> Comprar</a>
+            </div>            
+        </div>
+          
+        
       </div>
 
-        
-   
     </div>
-
-    <div class="col-md-1">
-
-    </div>
-
-
-    <div class="lado-derecho col-md-6">
-
-      <h3> información del asiento</h3>
-
-    </div>
-
   </div>
 
-</div>
+
 
 
 
