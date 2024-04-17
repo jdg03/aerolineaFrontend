@@ -24,8 +24,11 @@
                         href="">Precios</a>
                 </li>
                 <li class="nav-item">
-                    <a  href="{{ route('compraBoletos') }}" class="btn  rounded-pill text-white border-0 me-3" href="/">Comprar
+                    <a  href="{{ route('compraBoletos') }}" class="btn  rounded-pill text-white border-0 me-3">Comprar
                         Ticket</a>
+                </li>
+                <li class="nav-item">
+                    <a  href="{{ route('admin') }}" class="btn  rounded-pill text-white border-0 me-3">Admin</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -33,7 +36,7 @@
                     <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Iniciar Sesion</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="btn btn-outline-light me-2">Crear Cuenta</a>
+                    <a href="{{route('sign')}}" class="btn btn-outline-light me-2">Crear Cuenta</a>
                  </li>
             </ul>
         </div>

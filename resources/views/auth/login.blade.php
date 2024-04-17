@@ -16,7 +16,7 @@
                     <input type="submit" value="Iniciar Sesion" class="btn btn-primary rounded-pill w-100 mx-3">
                 </div>
                 <div class="input-group mb-3">
-                    <a href="" class="text-center mx-auto">No tengo una cuenta</a>
+                    <a href="{{route('sign')}}" class="text-center mx-auto">No tengo una cuenta</a>
                 </div>
             </form>
         </div>

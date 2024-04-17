@@ -32,7 +32,7 @@
             <a href="" class="btn btn-primary rounded-pill border-0" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">Nueva Aeronave</a>
         @else
-            <h2>No hay registadads</h2>
+            <h2>No hay registadad</h2>
         @endif
     </div>
 

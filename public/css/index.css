@@ -1,23 +1,18 @@
 .contenedor {
-  
-  height: 80vh;
-  display: grid;
+	height: 80vh;
+	display: grid;
 	grid-template-rows: 3fr 2fr;
-  color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
 }
 
 
- .contenedor1{
-
-  display: grid;
+.contenedor1 {
+	display: grid;
 	grid-template-rows: 2fr 1fr;
-  
- 
 }
 
-.contenedor .info{
-
-  display: flex;
+.contenedor .info {
+	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -26,9 +21,8 @@
 }
 
 
-.contenedor2{
-
-  display: flex;
+.contenedor2 {
+	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;

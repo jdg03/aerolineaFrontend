@@ -14,18 +14,16 @@
 
 
             <div class="info">
-                <h3>Mayan Airlines</h3>
+                <h3 class="display-1">Mayan Airlines</h3>
           
-                <p>
+                <p class="mt-5 fs-2 fw-lighter text-center">
                     Nuestra misión es conectar a las personas con sus sueños de viaje. Creemos que volar debe ser una experiencia placentera y accesible para todos.
                 </p>
             </div>
-
-            
         </div>
 
-        <div class="contenedor2">
-            <a href="{{ route('compraBoletos') }}" class="btn btn-outline-light me-2">Comprar boleto</a>
+        <div class="text-center">
+            <a href="{{ route('compraBoletos') }}" class="btn btn-outline-light btn-lg">Comprar boleto</a>
         </div>
         
         
