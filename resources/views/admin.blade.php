@@ -15,7 +15,7 @@
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Marca</th>
+                                    <th scope="col">Fabricante</th>
                                     <th scope="col">Modelo</th>
                                     <th scope="col">Capacidad</th>
                                     <th scope="col">Acciones</th>
@@ -25,12 +25,12 @@
                                 @foreach ($aviones as $avion)
                                     <tr>
                                         <td>{{ $avion['nombre'] }}</td>
-                                        <td>{{ $avion['marca'] }}</td>
+                                        <td>{{ $avion['fabricante'] }}</td>
                                         <td>{{ $avion['modelo'] }}</td>
                                         <td>{{ $avion['capacidad'] }}</td>
                                         <td>
-                                            <a href="" class="btn rounded-pill btn-outline-primary">Editar</a>
-                                            <a href="" class="btn rounded-pill btn-danger">Eliminar</a>
+                                            <a href="{{route('editarAeronave',['id'=>$avion['idAvion']])}}" class="btn rounded-pill btn-outline-primary">Editar</a>
+                                            <a href="{{route('verEliminarAeronave',['id'=>$avion['idAvion']])}}" class="btn rounded-pill btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -80,7 +80,7 @@
                 </div>
             </div>
             {{-- destinos --}}
-            <div class="card shadow mb-5">
+            {{-- <div class="card shadow mb-5">
                 <div class="card-header bg-success">
                     <h3 class="text-white">Destinos</h3>
                 </div>
@@ -113,9 +113,9 @@
                         Nuevo Destino
                     </button>
                 </div>
-            </div>
+            </div> --}}
             {{-- clientes --}}
-            <div class="card shadow mb-5">
+            {{-- <div class="card shadow mb-5">
                 <div class="card-header bg-warning">
                     <h3 class="text-white">Clientes</h3>
                 </div>
@@ -149,7 +149,7 @@
                         <h2 class="my-3 text-secondary">Aun no hay clientes registrados.</h2>
                     @endif
                 </div>
-            </div>
+            </div> --}}
             {{-- paises --}}
             <div class="card shadow mb-5">
                 <div class="card-header bg-secondary">
@@ -201,7 +201,7 @@
                     <form action="{{ route('agregarAeronave') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" name="marca" placeholder="Marca de la aeronave"
+                            <input type="text" name="fabricante" placeholder="Fabricante"
                                 class="form-control mx-3">
                         </div>
                         <div class="input-group mb-3">
@@ -224,8 +224,7 @@
         </div>
     </div>
     {{-- Modal aeropuertos --}}
-    <div class="modal fade" id="modalAeropuertos" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="modalAeropuertos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
@@ -234,10 +233,10 @@
                 </div>
                 <div class="modal-body">
                     ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <input type="submit" value="Guardar Aeropuerto" class="btn btn-danger">
+                    </div>
                 </div>
             </div>
         </div>

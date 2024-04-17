@@ -32,10 +32,11 @@ Route::post('/api/crear-cliente', [AuthController::class, 'crearCliente'])->name
 //admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::post('/api/agregar-aeronave', [AdminController::class, 'agregarAeronave'])->name('agregarAeronave');
-Route::delete('/api/eliminar-aeronave/{id}', [AdminController::class, 'eliminarAeronave'])->name('eliminarAeronave');
+Route::get('/editar-aeronave/{id}', [AdminController::class, 'editarAeronave'])->name('editarAeronave');
+Route::get('/api/confirm-eliminar-aeronave/{id}', [AdminController::class, 'verEliminarAeronave'])->name('verEliminarAeronave');
+Route::get('/api/eliminar-aeronave/{id}', [AdminController::class, 'eliminarAeronave'])->name('eliminarAeronave');
+Route::post('/api/actualizar-aernave/{id}', [AdminController::class, 'actualizarAeronave'])->name('actualizarAeronave');
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
 
-// Route::get('/aeronaves', [AvionController::class, 'index'])->name('aviones');
-// Route::post('/guardar-aeronave', [AvionController::class, 'agregarAeronave'])->name('guardarAeronave');
 
 Route::get('/comprar-boletos', [compraController::class, 'index'])->name('compraBoletos');

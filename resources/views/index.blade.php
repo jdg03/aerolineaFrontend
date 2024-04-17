@@ -13,7 +13,7 @@
         <div class="contenedor1">
 
 
-            <div class="info">
+            <div class="info mt-5">
                 <h3 class="display-1">Mayan Airlines</h3>
           
                 <p class="mt-5 fs-2 fw-lighter text-center">
