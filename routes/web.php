@@ -31,11 +31,18 @@ Route::post('/api/crear-cliente', [AuthController::class, 'crearCliente'])->name
 
 //admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-Route::post('/api/agregar-aeronave', [AdminController::class, 'agregarAeronave'])->name('agregarAeronave');
-Route::get('/editar-aeronave/{id}', [AdminController::class, 'editarAeronave'])->name('editarAeronave');
-Route::get('/api/confirm-eliminar-aeronave/{id}', [AdminController::class, 'verEliminarAeronave'])->name('verEliminarAeronave');
-Route::get('/api/eliminar-aeronave/{id}', [AdminController::class, 'eliminarAeronave'])->name('eliminarAeronave');
-Route::post('/api/actualizar-aernave/{id}', [AdminController::class, 'actualizarAeronave'])->name('actualizarAeronave');
+Route::post('/api/agregar-aeronave', [AdminController::class, 'agregarAeronave'])->name('agregarAeronave'); //agregar aeronave
+Route::get('/editar-aeronave/{id}', [AdminController::class, 'editarAeronave'])->name('editarAeronave'); //editar aeronave
+Route::get('/api/confirm-eliminar-aeronave/{id}', [AdminController::class, 'verEliminarAeronave'])->name('verEliminarAeronave'); //ver aeronave a eliminar
+Route::get('/api/eliminar-aeronave/{id}', [AdminController::class, 'eliminarAeronave'])->name('eliminarAeronave'); //eliminar aeronave
+Route::post('/api/actualizar-aeronave/{id}', [AdminController::class, 'actualizarAeronave'])->name('actualizarAeronave'); //actualizar aeronave
+
+Route::post('/api/agregar-pais', [AdminController::class, 'agregarPais'])->name('agregarPais'); //agregar pais
+Route::get('/editar-pais/{id}', [AdminController::class, 'editarPais'])->name('editarPais');
+Route::post('/api/actualizar-pais/{id}', [AdminController::class, 'actualizarPais'])->name('actualizarPais'); //actualizar pais
+
+Route::get('/nueva-ciudad')->name('nuevaCiudad');
+
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
 
 

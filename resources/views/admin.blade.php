@@ -29,8 +29,10 @@
                                         <td>{{ $avion['modelo'] }}</td>
                                         <td>{{ $avion['capacidad'] }}</td>
                                         <td>
-                                            <a href="{{route('editarAeronave',['id'=>$avion['idAvion']])}}" class="btn rounded-pill btn-outline-primary">Editar</a>
-                                            <a href="{{route('verEliminarAeronave',['id'=>$avion['idAvion']])}}" class="btn rounded-pill btn-danger">Eliminar</a>
+                                            <a href="{{ route('editarAeronave', ['id' => $avion['idAvion']]) }}"
+                                                class="btn rounded-pill btn-outline-primary">Editar</a>
+                                            <a href="{{ route('verEliminarAeronave', ['id' => $avion['idAvion']]) }}"
+                                                class="btn rounded-pill btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -156,23 +158,27 @@
                     <h3 class="text-white">Paises</h3>
                 </div>
                 <div class="card-body">
-                    @if ($aeropuertos)
+                    @if ($paises)
                         <table class="table table-striped">
                             <thead class="table-danger">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Pais</th>
+                                    <th scope="col">Operaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
+                                @foreach ($paises as $pais)
+                                    <tr>
+                                        <td>{{ $pais['idPais'] }}</td>
+                                        <td>{{ $pais['nombre'] }}</td>
+                                        <td>
+                                            <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"
+                                                class="btn rounded-pill btn-outline-primary">Editar</a>
+                                            <a href="" class="btn rounded-pill btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     @else
@@ -181,6 +187,45 @@
                     <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal"
                         data-bs-target="#modalPaises">
                         Nuevo Pais
+                    </button>
+                </div>
+            </div>
+            {{-- Ciudades --}}
+            <div class="card shadow mb-5">
+                <div class="card-header bg-secondary">
+                    <h3 class="text-white">Ciudades</h3>
+                </div>
+                <div class="card-body">
+                    @if ($ciudades)
+                        <table class="table table-striped">
+                            <thead class="table-danger">
+                                <tr>
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Pais</th>
+                                    <th scope="col">Operaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($paises as $pais)
+                                    <tr>
+                                        <td>{{ $pais['idPais'] }}</td>
+                                        <td>{{ $pais['nombre'] }}</td>
+                                        <td>
+                                            <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"
+                                                class="btn rounded-pill btn-outline-primary">Editar</a>
+                                            <a href="{{ route('verEliminarAeronave', ['id' => $avion['idAvion']]) }}"
+                                                class="btn rounded-pill btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h2 class="text-secondary my-3">No hay ciudades registradas.</h2>
+                    @endif
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#modalCiudades">
+                        Registrar Ciudad
                     </button>
                 </div>
             </div>
@@ -201,8 +246,7 @@
                     <form action="{{ route('agregarAeronave') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" name="fabricante" placeholder="Fabricante"
-                                class="form-control mx-3">
+                            <input type="text" name="fabricante" placeholder="Fabricante" class="form-control mx-3">
                         </div>
                         <div class="input-group mb-3">
                             <input type="text" name="modelo" placeholder="Modelo" class="form-control mx-3">
@@ -224,7 +268,8 @@
         </div>
     </div>
     {{-- Modal aeropuertos --}}
-    <div class="modal fade" id="modalAeropuertos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalAeropuertos" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
@@ -281,16 +326,52 @@
     <div class="modal fade" id="modalPaises" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Pais</h1>
+                <div class="modal-header bg-secondary">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Agregar Nuevo Pais</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form action="{{ route('agregarPais') }}" method="POST">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <input type="text" name="nombre" placeholder="Nombre de pais" class="form-control">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" value="Guardar Pais" class="btn btn-secondary">
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+    {{-- Modal ciudades --}}
+    <div class="modal fade" id="modalCiudades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Agregar Nueva Ciudad</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('agregarPais') }}" method="POST">
+                        @csrf
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                              <option selected>Seleccionar Pais</option>
+                              @foreach ($paises as $pais)
+                                  <option value="{{$pais['idPais']}}">{{$pais['nombre']}}</option>
+                              @endforeach
+                            </select>
+                            <label for="floatingSelect">Selecciona el pais al que pertenece la nueva ciudad</label>
+                          </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" value="Guardar Pais" class="btn btn-secondary">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

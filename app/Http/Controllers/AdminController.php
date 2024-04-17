@@ -25,10 +25,18 @@ class AdminController extends Controller
             $responseClientes = $client->request('GET', 'http://localhost:8080/api/clientes/obtener');
             $clientes = json_decode($responseClientes->getBody(), true);
 
+            $responsePaises = $client->request('GET', 'http://localhost:8080/api/paises/obtener');
+            $paises = json_decode($responsePaises->getBody(), true);
+
+            $responseCiudades = $client->request('GET', 'http://localhost:8080/api/ciudades');
+            $ciudades = json_decode($responseCiudades->getBody(), true);
+
             return view('admin', [
                 'aviones' => $aviones,
                 'aeropuertos' => $aeropuertos,
-                'clientes' => $clientes
+                'clientes' => $clientes,
+                'paises' => $paises,
+                'ciudades' => $ciudades
             ]);
         } catch (\Exception $ex) {
             return "Ha ocurrido un error con el servidor al obtener los datos";
@@ -126,5 +134,65 @@ class AdminController extends Controller
     public function agregarPais(Request $request)
     {
         $client = new Client();
+        $nombre = $request->input('nombre');
+        try {
+            $response = $client->request('POST', 'http://localhost:8080/api/paises/crear', [
+                'Content-Type' => 'application/json',
+                'json' => [
+                    'nombre' => $nombre
+                ]
+            ]);
+            if ($response->getStatusCode() == 200) {
+                return redirect()->route('admin');
+            }
+        } catch (\Exception $ex) {
+            return "Error al crear pais: " . $ex;
+        }
+    }
+    public function editarPais($id)
+    {
+        $client = new Client();
+        try {
+            $response = $client->request('GET', 'http://localhost:8080/api/paises/buscar/' . $id);
+            $pais =  json_decode($response->getBody(), true);
+
+            if ($response->getStatusCode() == 200) {
+                return view('paises/editar', ['pais' => $pais]);
+            }
+        } catch (\Exception $ex) {
+            return "Error al obtener el pais " . $ex;
+        }
+    }
+    public function actualizarPais(Request $request, $id)
+    {
+        $nombre = $request->input('nombre');
+        $client = new Client();
+        try {
+            $response = $client->put('http://localhost:8080/api/paises/actualizar/' . $id, [
+                'Content-Type' => 'application/json',
+                'json' => [
+                    'nombre' => $nombre
+                ],
+            ]);
+            if ($response->getStatusCode() == 200) {
+                return redirect()->route('admin');
+            }
+        } catch (\Exception $ex) {
+            return "Ocurrion un error al actualizar pais: " . $ex;
+        }
+    }
+    public function nuevaCiudad(Request $request, $id)
+    {
+        $ciudad = $request->input('ciudad');
+        $client = new Client();
+        try {
+            $responsePaises = $client->request('GET', 'http://localhost:8080/api/paises/obtener');
+            $paises =  json_decode($responsePaises->getBody(), true);
+            if ($responsePaises->getStatusCode() == 200) {
+                return view('ciudades/nuevaCiudad', ['paises' => $paises]);
+            }
+        } catch (\Exception $ex) {
+            return "Ocurrio un error al obtener el listado de paises " . $ex;
+        }
     }
 }
