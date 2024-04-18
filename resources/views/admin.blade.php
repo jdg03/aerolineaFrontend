@@ -202,14 +202,17 @@
                                 <tr>
                                     <th scope="col">#ID</th>
                                     <th scope="col">Pais</th>
+                                    <th scope="col">Ciudad</th>
                                     <th scope="col">Operaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($paises as $pais)
+                                @foreach ($ciudades  as $ciudad)
                                     <tr>
-                                        <td>{{ $pais['idPais'] }}</td>
-                                        <td>{{ $pais['nombre'] }}</td>
+                                        
+                                        <td>{{ $ciudad['idCiudad'] }}</td>
+                                        <td>{{ $ciudad['pais']['nombre'] }}</td>
+                                        <td>{{ $ciudad['nombre'] }}</td>
                                         <td>
                                             <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"
                                                 class="btn rounded-pill btn-outline-primary">Editar</a>
@@ -267,6 +270,7 @@
             </div>
         </div>
     </div>
+
     {{-- Modal aeropuertos --}}
     <div class="modal fade" id="modalAeropuertos" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -346,6 +350,7 @@
             </div>
         </div>
     </div>
+    
     {{-- Modal ciudades --}}
     <div class="modal fade" id="modalCiudades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -374,7 +379,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"
                                 data-bs-dismiss="modal">Cancelar</button>
-                            <input type="submit" value="Guardar Pais" class="btn btn-secondary">
+                            <input type="submit" value="Guardar Ciudad" class="btn btn-secondary">
                         </div>
                     </form>
                 </div>
