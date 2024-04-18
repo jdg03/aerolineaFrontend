@@ -355,17 +355,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('agregarPais') }}" method="POST">
+                    <form action="{{ route('agregarCiudad') }}" method="POST">
                         @csrf
                         <div class="form-floating">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                              <option selected>Seleccionar Pais</option>
-                              @foreach ($paises as $pais)
-                                  <option value="{{$pais['idPais']}}">{{$pais['nombre']}}</option>
-                              @endforeach
+                            <select class="form-select mb-3" name="pais" id="floatingSelect" aria-label="Floating label select example">
+                                <option selected>Seleccionar Pais</option>
+                                @foreach ($paises as $pais)
+                                    <option value="{{ $pais['idPais'] }}">{{ $pais['nombre'] }}</option>
+                                @endforeach
                             </select>
                             <label for="floatingSelect">Selecciona el pais al que pertenece la nueva ciudad</label>
-                          </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nombreCiudad" id="floatingInput"
+                                placeholder="name@example.com">
+                            <label for="floatingInput">Nombre de la Ciudad</label>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"
                                 data-bs-dismiss="modal">Cancelar</button>

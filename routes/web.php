@@ -41,7 +41,7 @@ Route::post('/api/agregar-pais', [AdminController::class, 'agregarPais'])->name(
 Route::get('/editar-pais/{id}', [AdminController::class, 'editarPais'])->name('editarPais');
 Route::post('/api/actualizar-pais/{id}', [AdminController::class, 'actualizarPais'])->name('actualizarPais'); //actualizar pais
 
-Route::get('/nueva-ciudad')->name('nuevaCiudad');
+Route::post('/agregar-ciudad', [AdminController::class, 'agregarCiudad'])->name('agregarCiudad'); //agregar ciudad a un pais
 
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
 

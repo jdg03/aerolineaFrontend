@@ -181,18 +181,28 @@ class AdminController extends Controller
             return "Ocurrion un error al actualizar pais: " . $ex;
         }
     }
-    public function nuevaCiudad(Request $request, $id)
+
+    public function agregarCiudad(Request $request)
     {
-        $ciudad = $request->input('ciudad');
+        $nombreCiudad = $request->input('nombreCiudad');
+        $pais = $request->input('pais');
         $client = new Client();
+
         try {
-            $responsePaises = $client->request('GET', 'http://localhost:8080/api/paises/obtener');
-            $paises =  json_decode($responsePaises->getBody(), true);
-            if ($responsePaises->getStatusCode() == 200) {
-                return view('ciudades/nuevaCiudad', ['paises' => $paises]);
+            $response = $client->request('POST', 'http://localhost:8080/api/ciudades/crear', [
+                'Content-Type' => 'application/json',
+                'json' => [
+                    'nombre' => $nombreCiudad,
+                    'pais' => [
+                        'idPais' => $pais
+                    ]
+                ]
+            ]);
+            if ($response->getStatusCode() == 200) {
+                return redirect()->route('admin');
             }
         } catch (\Exception $ex) {
-            return "Ocurrio un error al obtener el listado de paises " . $ex;
+            return "Ocurrio un error al crear la ciudad: " . $ex->getCode();
         }
     }
 }
