@@ -11,3 +11,5 @@ class DestinoController extends Controller
         return view('destinos/destinos');
     }
 }
+
+  

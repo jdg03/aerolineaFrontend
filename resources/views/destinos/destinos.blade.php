@@ -38,7 +38,7 @@
                         <td class="aeronave">Canadair Regional Jet700</td>
                         <td class="estado">Retrasado</td>
                         <td>
-                            <a type="submit" class="comprar">Comprar</a>
+                            <a class="comprar" href="{{ route('compraBoletos') }}">Comprar</a>
                         </td>
 
 
