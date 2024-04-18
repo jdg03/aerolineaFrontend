@@ -67,14 +67,15 @@
   cursor: pointer;
   transition: box-shadow 0.43s ease;
   transition-duration: 0.5s;
-  background-color: #1b598a;
-color: #fff;
+  background:linear-gradient(135deg, #172a74, #21a9af);
+  color: #fff;
 
 }
 
 .comprar:hover {
   color: #ddf6ff;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.230);
-  transform: scale(1.025)
+  transform: scale(1.1) !important;
+  transition: 0.3s;
 }
 

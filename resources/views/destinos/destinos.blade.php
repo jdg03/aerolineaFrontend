@@ -9,51 +9,34 @@
 
 @section('content')
     <div class="container">
-
-        <h1 class="titulo"> Proximos Destinos</h1>
-
+        <h1 class="titulo">Próximos Destinos</h1>
         <div class="datos">
-
-            <!--<div class="">-->
-
-                <table class="tabla-vuelo">
-                    <tr class="encabezado">
-
-                        <th>Vuelo</th>
-                        <th>Origen</th>
-                        <th>Hora de Salida</th>
-                        <th>Destino</th>
-                        <th>Hora de llegada</th>
-                        <th>Aeronave</th>
-                        <th>Estado</th>
-                        <th></th>
-                    </tr>
+            <table class="tabla-vuelo">
+                <tr class="encabezado">
+                    <th>Vuelo</th>
+                    <th>Origen</th>
+                    <th>Hora de Salida</th>
+                    <th>Destino</th>
+                    <th>Hora de llegada</th>
+                    <th>Aeronave</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+                @foreach($vuelos as $vuelo)
                     <tr>
-
-                        <td>UA 6101</td>
-                        <td class="origen">LGA, New York</td>
-                        <td>25 Sep 2020 2:59 PM</td>
-                        <td class="origen">IAD, Washington DC</td>
-                        <td>25 Sep 2020 4:24 PM</td>
-                        <td class="aeronave">Canadair Regional Jet700</td>
-                        <td class="estado">Retrasado</td>
+                        <td>{{ $vuelo['idVuelo'] }}</td>
+                        <td>{{ $vuelo['destino']['ciudadOrigen']['nombre'] }}, {{ $vuelo['destino']['ciudadOrigen']['pais']['nombre'] }}</td>
+                        <td>{{ $vuelo['fechaSalida'] }}</td>
+                        <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}, {{ $vuelo['destino']['ciudadDestino']['pais']['nombre'] }}</td>
+                        <td>{{ $vuelo['fechaLlegada'] }}</td>
+                        <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }}</td>
+                        <td>{{ $vuelo['estado'] }}</td>
                         <td>
-                            <a class="comprar" href="{{ route('compraBoletos') }}">Comprar</a>
+                            <a class="comprar" href="{{ route('compraBoletos', ['idVuelo' => $vuelo['idVuelo']]) }}">Comprar</a>
                         </td>
-
-
                     </tr>
-
-
-                    <!-- Repiten las filas siguientes para cada vuelo en la tabla -->
-
-                </table>
-
-            <!--</div>-->
-
+                @endforeach
+            </table>
         </div>
-
-
-
     </div>
 @endsection
