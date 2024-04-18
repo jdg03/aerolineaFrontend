@@ -15,9 +15,9 @@
                 <tr class="encabezado">
                     <th>Vuelo</th>
                     <th>Origen</th>
-                    <th>Hora de Salida</th>
+                    <th>fecha de Salida</th>
                     <th>Destino</th>
-                    <th>Hora de llegada</th>
+                    <th>fecha de llegada</th>
                     <th>Aeronave</th>
                     <th>Estado</th>
                     <th></th>
@@ -29,10 +29,10 @@
                         <td>{{ $vuelo['fechaSalida'] }}</td>
                         <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}, {{ $vuelo['destino']['ciudadDestino']['pais']['nombre'] }}</td>
                         <td>{{ $vuelo['fechaLlegada'] }}</td>
-                        <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }}</td>
+                        <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }} - id: {{ $vuelo['avion']['idAvion'] }}</td>
                         <td>{{ $vuelo['estado'] }}</td>
                         <td>
-                            <a class="comprar" href="{{ route('compraBoletos', ['idVuelo' => $vuelo['idVuelo']]) }}">Comprar</a>
+                            <a class="comprar" href="{{ route('compraBoletos', ['idAvion' => $vuelo['avion']['idAvion']]) }}">Comprar</a>
                         </td>
                     </tr>
                 @endforeach

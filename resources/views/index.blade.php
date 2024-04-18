@@ -23,7 +23,7 @@
         </div>
 
         <div class="text-center">
-            <a href="{{ route('compraBoletos') }}" class="btn btn-outline-light btn-lg">Comprar boleto</a>
+            <a href="" class="btn btn-outline-light btn-lg">Comprar boleto</a>
         </div>
         
         

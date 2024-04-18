@@ -56,13 +56,13 @@
 
   .clase-primera-clase{
 
-    border: 2px solid rgb(231, 234, 35);
+    background:linear-gradient(135deg, #ebef79, #a3af21);
 
   }
 
   .clase-premium{
 
-    border: 2px solid rgb(61, 69, 220);
+    background:linear-gradient(135deg, #798fef, #21a9af);
 
   }
 

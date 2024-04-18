@@ -23,10 +23,7 @@
                     <a class="btn  rounded-pill text-white border-0 me-3"
                         href="">Precios</a>
                 </li>
-                <li class="nav-item">
-                    <a  href="{{ route('compraBoletos') }}" class="btn  rounded-pill text-white border-0 me-3">Comprar
-                        Ticket</a>
-                </li>
+                
                 <li class="nav-item">
                     <a  href="{{ route('admin') }}" class="btn  rounded-pill text-white border-0 me-3">Admin</a>
                 </li>
