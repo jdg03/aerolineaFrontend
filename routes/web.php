@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DestinoController;
-use App\Http\Controllers\AvionController;
 use App\Http\Controllers\compraController;
 
 
@@ -40,6 +39,8 @@ Route::post('/api/actualizar-aeronave/{id}', [AdminController::class, 'actualiza
 Route::post('/api/agregar-pais', [AdminController::class, 'agregarPais'])->name('agregarPais'); //agregar pais
 Route::get('/editar-pais/{id}', [AdminController::class, 'editarPais'])->name('editarPais');
 Route::post('/api/actualizar-pais/{id}', [AdminController::class, 'actualizarPais'])->name('actualizarPais'); //actualizar pais
+Route::get('/api/confirm-eliminar-pais/{id}', [AdminController::class, 'verEliminarPais'])->name('verEliminarPais'); //ver pais a eliminar
+Route::get('/api/eliminar-pais/{id}', [AdminController::class, 'eliminarPais'])->name('eliminarPais'); //eliminar un pais
 
 //vistas
 Route::post('/agregar-ciudad', [AdminController::class, 'agregarCiudad'])->name('agregarCiudad'); //agregar ciudad a un pais

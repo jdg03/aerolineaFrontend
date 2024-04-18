@@ -175,7 +175,7 @@
                                         <td>
                                             <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"
                                                 class="btn rounded-pill btn-outline-primary">Editar</a>
-                                            <a href="" class="btn rounded-pill btn-danger">Eliminar</a>
+                                            <a href="{{route('verEliminarPais', ['id'=>$pais['idPais']])}}" class="btn rounded-pill btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -181,6 +181,31 @@ class AdminController extends Controller
             return "Ocurrion un error al actualizar pais: " . $ex;
         }
     }
+    public function verEliminarPais($id)
+    {
+        $client = new Client();
+        try {
+            $response = $client->request('GET', 'http://localhost:8080/api/paises/buscar/' . $id);
+            $pais = json_decode($response->getBody(), true);
+            if ($response->getStatusCode() == 200) {
+                return view("paises/eliminar", ['pais' => $pais]);
+            }
+        } catch (\Exception $ex) {
+            return "Error al obtener el pais: " . $ex;
+        }
+    }
+    public function eliminarPais($id)
+    {
+        $client = new Client();
+        try {
+            $response = $client->delete('http://localhost:8080/api/paises/eliminar/' . $id);
+            if ($response->getStatusCode() == 200) {
+                return redirect('admin');
+            }
+        } catch (\Exception $ex) {
+            return "Error al eliminar aeronave: " . $ex->getCode();
+        }
+    }
 
     public function agregarCiudad(Request $request)
     {
