@@ -23,19 +23,20 @@
                     <th></th>
                 </tr>
                 @foreach($vuelos as $vuelo)
-                    <tr>
-                        <td>{{ $vuelo['idVuelo'] }}</td>
-                        <td>{{ $vuelo['destino']['ciudadOrigen']['nombre'] }}, {{ $vuelo['destino']['ciudadOrigen']['pais']['nombre'] }}</td>
-                        <td>{{ implode('-', $vuelo['fechaSalida']) }}</td>
-                        <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}, {{ $vuelo['destino']['ciudadDestino']['pais']['nombre'] }}</td>
-                        <td>{{ implode('-', $vuelo['fechaSalida']) }}</td>
-                        <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }} - id: {{ $vuelo['avion']['idAvion'] }}</td>
-                        <td>{{ $vuelo['estado'] }}</td>
-                        <td>
-                            <a class="comprar" href="{{ route('compraBoletos', ['idAvion' => $vuelo['avion']['idAvion']]) }}">Comprar</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ $vuelo['idVuelo'] }}</td>
+                    <td>{{ $vuelo['destino']['ciudadOrigen']['nombre'] }}, {{ $vuelo['destino']['ciudadOrigen']['idCiudad'] }}</td>
+                    <td>{{ $vuelo['fechaSalida'][2] }}-{{ $vuelo['fechaSalida'][1] }}-{{ $vuelo['fechaSalida'][0] }}</td>
+                    <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}, {{ $vuelo['destino']['ciudadDestino']['idCiudad'] }}</td>
+                    <td>{{ $vuelo['fechaLlegada'][2] }}-{{ $vuelo['fechaLlegada'][1] }}-{{ $vuelo['fechaLlegada'][0] }}</td>
+                    <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }} - id: {{ $vuelo['avion']['idAvion'] }}</td>
+                    <td>{{ $vuelo['estado'] }}</td>
+                    <td>
+                        <a class="comprar" href="{{ route('compraBoletos', ['idAvion' => $vuelo['avion']['idAvion']]) }}">Comprar</a>
+                    </td>
+                </tr>
                 @endforeach
+                
             </table>
         </div>
     </div>

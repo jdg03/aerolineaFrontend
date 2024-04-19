@@ -20,7 +20,7 @@ class compraController extends Controller
          $asientos = json_decode($response->getBody()->getContents(), true);
  
          //return $asientos;
-          return view('compra/compraBoletos', compact('asientos'));
+        return view('compra/compraBoletos', compact('asientos'));
  
          } catch (\Exception $ex) {
          
