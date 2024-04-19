@@ -26,9 +26,9 @@
                     <tr>
                         <td>{{ $vuelo['idVuelo'] }}</td>
                         <td>{{ $vuelo['destino']['ciudadOrigen']['nombre'] }}, {{ $vuelo['destino']['ciudadOrigen']['pais']['nombre'] }}</td>
-                        <td>{{ $vuelo['fechaSalida'] }}</td>
+                        <td>{{ implode('-', $vuelo['fechaSalida']) }}</td>
                         <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}, {{ $vuelo['destino']['ciudadDestino']['pais']['nombre'] }}</td>
-                        <td>{{ $vuelo['fechaLlegada'] }}</td>
+                        <td>{{ implode('-', $vuelo['fechaSalida']) }}</td>
                         <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }} - id: {{ $vuelo['avion']['idAvion'] }}</td>
                         <td>{{ $vuelo['estado'] }}</td>
                         <td>

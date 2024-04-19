@@ -19,7 +19,7 @@ class DestinoController extends Controller
          $vuelos = json_decode($response->getBody()->getContents(), true);
  
          //return $vuelos;
-          return view('destinos/destinos', compact('vuelos'));
+         return view('destinos/destinos', compact('vuelos'));
  
          } catch (\Exception $ex) {
          
