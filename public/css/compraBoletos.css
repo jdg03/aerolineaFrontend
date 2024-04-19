@@ -5,8 +5,6 @@
   }
 
   .lado-izquierdo{
-
-   
     background:linear-gradient(135deg, #cbcdd7, #21a9af);
  
     padding-top: 10%;
@@ -39,19 +37,19 @@
 
   .asientos{
     
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
 
-  margin: 1%;
-  padding: 5%;
-  border: 2px solid black;
+    margin: 1%;
+    padding: 5%;
+    border: 2px solid black;
 
-  border-radius: 5px;
-  cursor: pointer;
+    border-radius: 5px;
+    cursor: pointer;
   }
 
   .clase-primera-clase{
@@ -75,27 +73,43 @@
   .lado-derecho {
 
     background:linear-gradient(135deg, #cbcdd7, #21a9af);
-    border-radius: 5%;
-    padding: 5%;
+    border-radius: 4%;
+
     display: grid;
 	  grid-template-rows: 3fr 1fr;
-    padding: 3% !important;
+    padding: 0% !important;
+   
 
   }
   
-  .imagen{
+  .imagen img{
 
-    background-image: url('/public/images/aciento1.jpeg'); 
-    background-size: cover;
-    background-position: center; 
+    height: 100%;
+    width: 100%;
     
+
+    max-width: 100%; /* Establece el ancho máximo al 100% del contenedor */
+    height: auto; /* Permite que la altura se ajuste automáticamente para mantener la relación de aspecto */
+    border-radius:4%;
+       
   }
 
   .informacion-asiento{
 
+    padding: 4%;
     display: grid;
   	grid-template-columns: 3fr 1fr;
 
+  }
+
+  .info{
+    font-family:'Source Sans Pro', sans-serif;
+    display: flex;
+	  flex-direction: column;
+	  flex-wrap: nowrap;
+	  justify-content: center;
+	  align-items: stretch;
+	  align-content: stretch;
   }
 
   .contenedor-boton{

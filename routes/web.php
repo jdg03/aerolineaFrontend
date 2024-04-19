@@ -46,3 +46,4 @@ Route::get('/api/eliminar-pais/{id}', [AdminController::class, 'eliminarPais'])-
 Route::post('/agregar-ciudad', [AdminController::class, 'agregarCiudad'])->name('agregarCiudad'); //agregar ciudad a un pais
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
 Route::get('/comprar-boletos/{idAvion}', [compraController::class, 'index'])->name('compraBoletos');
+

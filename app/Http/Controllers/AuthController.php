@@ -16,6 +16,7 @@ class AuthController extends Controller
     {
         return view('auth/sign');
     }
+    
     public function crearCliente(Request $request)
     {
         $nombre = $request->input('nombre');

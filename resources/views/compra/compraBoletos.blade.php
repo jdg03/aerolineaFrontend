@@ -10,7 +10,7 @@
 
 <div class="container contenedor">
 
-  <div class="row">
+    <div class="row">
 
     <div class="lado-izquierdo col-md-5">
 
@@ -18,16 +18,18 @@
         </div>
         <div class="contenedor-asientos">
             @foreach($asientos as $asiento)
-                <div class="col asientos @if($asiento['clase']['nombre'] === 'Primera Clase') clase-primera-clase
-                                          @elseif($asiento['clase']['nombre'] === 'Premium') clase-premium
-                                          @elseif($asiento['clase']['nombre'] === 'Básico') clase-basico
-                                      @endif">
-                    {{ $asiento['numeroAsiento'] }}
-                </div>
+              <div class="col asientos @if($asiento['clase']['nombre'] === 'Primera Clase') clase-primera-clase
+              @elseif($asiento['clase']['nombre'] === 'Premium') clase-premium
+              @elseif($asiento['clase']['nombre'] === 'Básico') clase-basico
+              @endif"
+              onclick="mostrarInformacionAsiento({{ $asiento['idAsiento'] }})">
+
+              {{ $asiento['numeroAsiento'] }}
+              </div>
             @endforeach
         </div>
         
-    </div>
+     </div>
   
       
         <div class="col-md-1">
@@ -39,13 +41,13 @@
 
 
           <div class="imagen">
-          
+            <img id="imagenAsiento" src="{{ asset('images/asiento2.jpg') }}" alt="Preview">
           </div>
 
           <div class="informacion-asiento">
 
-            <div>
-              <div class="">
+            <div class="info">
+              <div>
                 <label>Número de asiento:</label>
                 <span id="numero-asiento">-</span>
               </div>
@@ -60,15 +62,16 @@
             </div>
 
             <div class="contenedor-boton">
-              <a  href="" class="btn btn-outline-light btn-lg"> Comprar</a>
-            </div>            
+              <a id="botonComprar" href="" class="btn btn-outline-light btn-lg"> Comprar</a>
+            </div> 
+
         </div>
           
         
       </div>
 
     </div>
-  </div>
+</div>
 
 
 
@@ -93,3 +96,5 @@
   </div>
 </div>
 @endsection
+
+<script src="{{ asset('js/compraBoletos.js') }}"></script>
