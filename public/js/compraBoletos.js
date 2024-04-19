@@ -10,9 +10,9 @@ async function mostrarInformacionAsiento(id) {
 
         // Actualiza la imagen del asiento según la clase
         if (data.clase.nombre === 'Básico') {
-            document.getElementById('imagenAsiento').src = "/images/asiento2.jpg"; // Ruta relativa a la ubicación del archivo HTML
+            document.getElementById('imagenAsiento').src = "/images/asiento2.jpg"; 
         } else if (data.clase.nombre === 'Premium') {
-            document.getElementById('imagenAsiento').src = "/images/asiento1.jpg";
+            document.getElementById('imagenAsiento').src = "/images/asiento3.jpg";
         } else {
             document.getElementById('imagenAsiento').src = "/images/asientoPrimeraClase3.jpeg";
         }
