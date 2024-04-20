@@ -201,7 +201,7 @@
                             <thead class="table-danger">
                                 <tr>
                                     <th scope="col">#ID</th>
-                                    <th scope="col">Pais</th>
+                                   
                                     <th scope="col">Ciudad</th>
                                     <th scope="col">Operaciones</th>
                                 </tr>
@@ -211,7 +211,7 @@
                                     <tr>
                                         
                                         <td>{{ $ciudad['idCiudad'] }}</td>
-                                        <td>{{ $ciudad['pais']['nombre'] }}</td>
+                                        {{--<td>{{ $ciudad['pais']['nombre'] }}</td>--}}
                                         <td>{{ $ciudad['nombre'] }}</td>
                                         <td>
                                             <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"

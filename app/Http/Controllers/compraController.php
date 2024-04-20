@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class compraController extends Controller
 {
+
+    //muestra la vista con los asientos respectivos del avion
     public function index(Request $request, $idAvion){
 
         $client = new Client();
@@ -49,4 +51,30 @@ class compraController extends Controller
          }
     
     }
+    
+
+    public function comprarAsiento(Request $request, $id) {
+
+        $client = new Client();
+    
+        try {
+            // Hacer la solicitud put a la API para actualizar el asiento
+            $response = $client->put('http://localhost:8080/api/asientos/actualizar/' . $id, [
+                'headers' => [
+                    'Content-Type' => 'application/json'
+                ],
+                'json' => [
+                    'estado' => false 
+                ]
+            ]);
+            
+            //recarga la pagina otra vez
+            return back();
+
+        } catch (\Exception $ex) {
+            // Manejar errores
+            return "Ha ocurrido un error al actualizar el asiento";
+        }
+    }
+    
 }

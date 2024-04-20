@@ -6,7 +6,7 @@
 
   .lado-izquierdo{
     background:linear-gradient(135deg, #cbcdd7, #21a9af);
- 
+   
     padding-top: 10%;
     border-top-left-radius: 340px; 
     border-top-right-radius: 340px;
@@ -148,10 +148,18 @@
     align-items: center;
     align-content: stretch;
   }
+
+  .contenedor-boton a{
+    
+    display: none;
+  }
   
 
 .modal-body {
 
-  background-color: rgba(rgba(248, 244, 244, 0.4)) !important;
+ 
 }
 
+.modal {
+  background-color: rgba(rgba(248, 244, 244, 0.4)) !important;
+}

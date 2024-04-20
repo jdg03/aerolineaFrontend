@@ -41,9 +41,11 @@ Route::get('/editar-pais/{id}', [AdminController::class, 'editarPais'])->name('e
 Route::post('/api/actualizar-pais/{id}', [AdminController::class, 'actualizarPais'])->name('actualizarPais'); //actualizar pais
 Route::get('/api/confirm-eliminar-pais/{id}', [AdminController::class, 'verEliminarPais'])->name('verEliminarPais'); //ver pais a eliminar
 Route::get('/api/eliminar-pais/{id}', [AdminController::class, 'eliminarPais'])->name('eliminarPais'); //eliminar un pais
-
-//vistas
 Route::post('/agregar-ciudad', [AdminController::class, 'agregarCiudad'])->name('agregarCiudad'); //agregar ciudad a un pais
-Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos');
-Route::get('/comprar-boletos/{idAvion}', [compraController::class, 'index'])->name('compraBoletos');
+
+
+Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos'); // vista destinos
+Route::get('/asientos/{idAvion}', [compraController::class, 'index'])->name('asientos');// vista del avion con los asientos respectivos
+
+Route::get('/comprarAsiento/{id}', [compraController::class, 'comprarAsiento'])->name('comprarAsiento'); // actualiza un asiento y cambia el esatdo a false
 

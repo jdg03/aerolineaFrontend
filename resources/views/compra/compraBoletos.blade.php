@@ -18,6 +18,8 @@
         </div>
         <div class="contenedor-asientos">
 
+          
+
           <div class="primera-clase">
             @foreach($asientos_primera_clase as $asiento)
               @if($asiento['estado'] === true)
@@ -101,8 +103,8 @@
             </div>
 
             <div class="contenedor-boton">
-              <a id="botonComprar" href="#" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#compra"> Comprar</a>
-          </div>
+              <a  href="" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#compra"> Comprar</a>
+            </div>
           
 
         </div>
@@ -112,9 +114,6 @@
 
     </div>
 </div>
-
-
-
 
 
 
@@ -158,12 +157,13 @@
                           <input type="password" name="contrasenia" placeholder="Contrasenia" class="form-control rounded-pill mx-3">
                       </div>
                       <div class="input-group mb-3">
-                        <a href="{{ route('login') }}" class="btn btn-primary rounded-pill w-100 mx-3">Comprar</a>
+                        <a id="botonComprar" href="" class="btn btn-primary rounded-pill w-100 mx-3">Comprar</a>
                       </div>
                       
                   </form>
               </div>
-          </div>
+            </div>
+
           </div>
       </div>
   </div>

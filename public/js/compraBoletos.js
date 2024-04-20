@@ -1,17 +1,19 @@
 async function mostrarInformacionAsiento(id) {
     try {
         const response = await fetch(`http://localhost:8080/api/asientos/buscar/${id}`);
-        const data = await response.json();
+        const asiento = await response.json();
+
+        console.log(asiento);
 
         // Actualiza la información del asiento en la página
-        document.getElementById('numero-asiento').innerText = data.numeroAsiento;
-        document.getElementById('clase').innerText = data.clase.nombre;
-        document.getElementById('precio').innerText = data.clase.precio;
+        document.getElementById('numero-asiento').innerText = asiento.numeroAsiento;
+        document.getElementById('clase').innerText = asiento.clase.nombre;
+        document.getElementById('precio').innerText = asiento.clase.precio;
 
         // Actualiza la imagen del asiento según la clase
-        if (data.clase.nombre === 'Básico') {
+        if (asiento.clase.nombre === 'Básico') {
             document.getElementById('imagenAsiento').src = "/images/asiento2.jpg"; 
-        } else if (data.clase.nombre === 'Premium') {
+        } else if (asiento.clase.nombre === 'Premium') {
             document.getElementById('imagenAsiento').src = "/images/asiento3.jpg";
         } else {
             document.getElementById('imagenAsiento').src = "/images/asientoPrimeraClase3.jpeg";
@@ -26,6 +28,14 @@ async function mostrarInformacionAsiento(id) {
          // Agrega la clase "seleccionado" al asiento clickeado
          const asientoClickeado = document.querySelector(`[onclick="mostrarInformacionAsiento(${id})"]`);
          asientoClickeado.classList.add('seleccionado');
+
+         const botonComprar = document.querySelector('.contenedor-boton a');
+
+        // Cambiar el estilo para mostrar el elemento
+        botonComprar.style.display = 'block';
+
+         //actualiza la ruta del boton comprar
+         document.getElementById('botonComprar').href = `/comprarAsiento/${asiento.idAsiento}`;
 
     } catch (error) {
         console.error('Error al obtener la información del asiento:', error);
