@@ -16,7 +16,20 @@ async function mostrarInformacionAsiento(id) {
         } else {
             document.getElementById('imagenAsiento').src = "/images/asientoPrimeraClase3.jpeg";
         }
+
+         // Remueve la clase "seleccionado" de todos los asientos
+         const asientos = document.querySelectorAll('.asientos');
+         asientos.forEach(asiento => {
+             asiento.classList.remove('seleccionado');
+         });
+ 
+         // Agrega la clase "seleccionado" al asiento clickeado
+         const asientoClickeado = document.querySelector(`[onclick="mostrarInformacionAsiento(${id})"]`);
+         asientoClickeado.classList.add('seleccionado');
+
     } catch (error) {
         console.error('Error al obtener la información del asiento:', error);
     }
 }
+
+

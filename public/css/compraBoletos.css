@@ -30,51 +30,78 @@
     margin-left: 3% !important;
 
     display: grid;
+	  grid-template-rows: 1fr 1fr 1fr;
+
+  }
+
+  .primera-clase{
+
+    display: grid;
+	  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  }
+
+  .premium{
+
+    display: grid;
+	  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  }
+
+  .basico{
+
+    display: grid;
 	  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
   }
  
 
   .asientos{
-    
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     align-content: stretch;
-
     margin: 1%;
     padding: 5%;
-    border: 2px solid black;
-
     border-radius: 5px;
     cursor: pointer;
+
   }
 
-  .clase-primera-clase{
+  .no-disponible {
+    pointer-events: none;
+    
+  }
 
+  .asientos img{
+    max-width: 100%; 
+    height: auto;
+  }
+
+  .asientos:hover{
+    transform: scale(1.1) 
+  }
+
+  .seleccionado {
+    transform: scale(0.9); 
+    border: 2px solid black
+  }
+  
+  
+  .clase-primera-clase{
     background:linear-gradient(135deg, #ebef79, #a3af21);
 
   }
 
   .clase-premium{
-
     background:linear-gradient(135deg, #798fef, #21a9af);
 
   }
 
-  .asientos:hover{
-
-    transform: scale(1.1) 
-  }
-  
-
   .lado-derecho {
-
-    background:linear-gradient(135deg, #cbcdd7, #21a9af);
     border-radius: 4%;
-
     display: grid;
 	  grid-template-rows: 3fr 1fr;
     padding: 0% !important;
@@ -86,10 +113,8 @@
 
     height: 100%;
     width: 100%;
-    
-
-    max-width: 100%; /* Establece el ancho máximo al 100% del contenedor */
-    height: auto; /* Permite que la altura se ajuste automáticamente para mantener la relación de aspecto */
+    max-width: 100%;
+    height: auto; 
     border-radius:4%;
        
   }
@@ -110,6 +135,9 @@
 	  justify-content: center;
 	  align-items: stretch;
 	  align-content: stretch;
+    font-weight: bold;
+    color: aliceblue;
+
   }
 
   .contenedor-boton{
@@ -121,4 +149,9 @@
     align-content: stretch;
   }
   
+
+.modal-body {
+
+  background-color: rgba(rgba(248, 244, 244, 0.4)) !important;
+}
 
