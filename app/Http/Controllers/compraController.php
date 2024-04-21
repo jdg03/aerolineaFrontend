@@ -73,7 +73,7 @@ class compraController extends Controller
 
         } catch (\Exception $ex) {
             // Manejar errores
-            return "Ha ocurrido un error al actualizar el asiento";
+            return $ex;
         }
     }
     

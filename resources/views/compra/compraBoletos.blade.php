@@ -103,7 +103,7 @@
             </div>
 
             <div class="contenedor-boton">
-              <a  href="" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#compra"> Comprar</a>
+              <a class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#compra"> Comprar</a>
             </div>
           
 

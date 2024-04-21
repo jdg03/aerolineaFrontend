@@ -40,7 +40,7 @@ class AdminController extends Controller
                 'destinos' => $destinos
             ]);
         } catch (\Exception $ex) {
-            return "Ha ocurrido un error con el servidor al obtener los datos";
+            return $ex;
         }
     }
     public function agregarAeronave(Request $request)
