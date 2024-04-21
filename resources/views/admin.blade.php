@@ -4,6 +4,44 @@
     <div class="container">
         <h1 class="display-4 text-white mb-5">Administracion del Sistema</h1>
         <div class="card p-5">
+            {{-- vuelos --}}
+            <div class="card shadow mb-5">
+                <div class="card-header" style="background-color: rgb(98, 153, 255)">
+                    <h3 class="text-white">Vuelos</h3>
+                </div>
+                <div class="card-body">
+                    @if ($destinos)
+                        <table class="table table-striped">
+                            <thead class="table-success">
+                                <tr>
+                                    <th scope="col">Numero Vuelo</th>
+                                    <th scope="col">Avion</th>
+                                    <th scope="col">Destino</th>
+                                    <th scope="col">Salida</th>
+                                    <th scope="col">Llegada</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    @else
+                        <h2 class="text-secondary my-3">No hay destinos creados.</h2>
+                    @endif
+                    <button type="button" class="btn text-white border-0 rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#modalDestinos" style="background-color: rgb(98, 153, 255)">
+                        Nuevo Vuelo
+                    </button>
+                </div>
+            </div>
             {{-- Aeronaves --}}
             <div class="card shadow mb-5">
                 <div class="card-header bg-primary">
@@ -57,19 +95,22 @@
                         <table class="table table-striped">
                             <thead class="table-danger">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Ciudad</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
+                                @foreach ($aeropuertos as $aeropuerto)
+                                    <tr>
+                                        <td>{{$aeropuerto['nombre']}}</td>
+                                        <td>{{$aeropuerto['ciudad']['nombre']}}</td>
+                                        <td>
+                                            <a href="" class="btn btn-outline-primary">Editar</a>
+                                            <a href="" class="btn btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     @else
@@ -77,12 +118,12 @@
                     @endif
                     <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal"
                         data-bs-target="#modalAeropuertos">
-                        Nuevo Destino
+                        Nuevo Aeropuerto
                     </button>
                 </div>
             </div>
             {{-- destinos --}}
-            {{-- <div class="card shadow mb-5">
+            <div class="card shadow mb-5">
                 <div class="card-header bg-success">
                     <h3 class="text-white">Destinos</h3>
                 </div>
@@ -115,7 +156,7 @@
                         Nuevo Destino
                     </button>
                 </div>
-            </div> --}}
+            </div>
             {{-- clientes --}}
             {{-- <div class="card shadow mb-5">
                 <div class="card-header bg-warning">
@@ -175,7 +216,8 @@
                                         <td>
                                             <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"
                                                 class="btn rounded-pill btn-outline-primary">Editar</a>
-                                            <a href="{{route('verEliminarPais', ['id'=>$pais['idPais']])}}" class="btn rounded-pill btn-danger">Eliminar</a>
+                                            <a href="{{ route('verEliminarPais', ['id' => $pais['idPais']]) }}"
+                                                class="btn rounded-pill btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -201,17 +243,17 @@
                             <thead class="table-danger">
                                 <tr>
                                     <th scope="col">#ID</th>
-                                   
+
                                     <th scope="col">Ciudad</th>
                                     <th scope="col">Operaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($ciudades  as $ciudad)
+                                @foreach ($ciudades as $ciudad)
                                     <tr>
-                                        
+
                                         <td>{{ $ciudad['idCiudad'] }}</td>
-                                        {{--<td>{{ $ciudad['pais']['nombre'] }}</td>--}}
+                                        {{-- <td>{{ $ciudad['pais']['nombre'] }}</td> --}}
                                         <td>{{ $ciudad['nombre'] }}</td>
                                         <td>
                                             <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"
@@ -281,11 +323,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
-                        <input type="submit" value="Guardar Aeropuerto" class="btn btn-danger">
-                    </div>
+                    <form action="{{route('agregarAeropuerto')}}" method="POST">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <input type="text" name="nombre" placeholder="Nombre del aeropuerto"
+                                class="form-control">
+                        </div>
+                        <div class="form-floating">
+                            <select class="form-select" name="ciudad" id="floatingSelect" aria-label="Floating label select example">
+                                @foreach ($paises as $pais)
+                                   @foreach ($pais['ciudades'] as $ciudad)
+                                       <option value="{{$ciudad['idCiudad']}}">{{$ciudad['nombre']}} - {{$pais['nombre']}}</option>
+                                   @endforeach
+                                @endforeach
+                            </select>
+                            <label for="floatingSelect">Seleccione la ciudad del aeropuerto</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" value="Guardar Aeropuerto" class="btn btn-danger">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -350,7 +408,7 @@
             </div>
         </div>
     </div>
-    
+
     {{-- Modal ciudades --}}
     <div class="modal fade" id="modalCiudades" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -363,7 +421,8 @@
                     <form action="{{ route('agregarCiudad') }}" method="POST">
                         @csrf
                         <div class="form-floating">
-                            <select class="form-select mb-3" name="pais" id="floatingSelect" aria-label="Floating label select example">
+                            <select class="form-select mb-3" name="pais" id="floatingSelect"
+                                aria-label="Floating label select example">
                                 <option selected>Seleccionar Pais</option>
                                 @foreach ($paises as $pais)
                                     <option value="{{ $pais['idPais'] }}">{{ $pais['nombre'] }}</option>

@@ -19,8 +19,8 @@ class AdminController extends Controller
             $responseAeropuertos = $client->request('GET', 'http://localhost:8080/api/aeropuertos');
             $aeropuertos = json_decode($responseAeropuertos->getBody(), true);
 
-            // $responseDestinos = $client->request('GET', 'http://localhost:8080/api/destinos');
-            // $destinos = json_decode($responseDestinos->getBody(), true);
+            $responseDestinos = $client->request('GET', 'http://localhost:8080/api/destinos/obtener');
+            $destinos = json_decode($responseDestinos->getBody(), true);
 
             $responseClientes = $client->request('GET', 'http://localhost:8080/api/clientes/obtener');
             $clientes = json_decode($responseClientes->getBody(), true);
@@ -36,7 +36,8 @@ class AdminController extends Controller
                 'aeropuertos' => $aeropuertos,
                 'clientes' => $clientes,
                 'paises' => $paises,
-                'ciudades' => $ciudades
+                'ciudades' => $ciudades,
+                'destinos' => $destinos
             ]);
         } catch (\Exception $ex) {
             return "Ha ocurrido un error con el servidor al obtener los datos";
@@ -228,6 +229,28 @@ class AdminController extends Controller
             }
         } catch (\Exception $ex) {
             return "Ocurrio un error al crear la ciudad: " . $ex->getCode();
+        }
+    }
+    public function agregarAeropuerto(Request $request)
+    {
+        $nombre = $request->input('nombre');
+        $ciudad = $request->input('ciudad');
+        $client = new Client();
+        try {
+            $response = $client->request('POST', 'http://localhost:8080/api/aeropuertos/crear', [
+                'Content-Type' => 'application/json',
+                'json' => [
+                    'nombre' => $nombre,
+                    'ciudad' => [
+                        'idCiudad' => $ciudad
+                    ]
+                ]
+            ]);
+            if ($response->getStatusCode() == 200) {
+                return redirect('admin');
+            }
+        } catch (\Exception $ex) {
+            return "Error al crear aeropuerto: " . $ex;
         }
     }
 }
