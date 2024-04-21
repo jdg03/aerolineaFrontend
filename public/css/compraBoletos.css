@@ -75,6 +75,14 @@
     
   }
 
+  
+  .no-disponible span {
+    color: red;
+    font-weight: bold;
+
+    
+  }
+
   .asientos img{
     max-width: 100%; 
     height: auto;

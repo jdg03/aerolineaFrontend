@@ -29,7 +29,7 @@
                   </div>
               @else
                   <div class="col asientos no-disponible">
-                      X
+                     <span> {{ $asiento['numeroAsiento'] }}</span>
                       <img src="{{ asset('images/asiento-de-coche-primeraclase2.png') }}" alt="Asiento de Primera Clase">
                   </div>
               @endif
@@ -45,7 +45,7 @@
                   </div>
               @else
                   <div class="col asientos no-disponible">
-                      X
+                      <span> {{ $asiento['numeroAsiento'] }}</span>
                       <img src="{{ asset('images/asiento-de-coche-premium2.png') }}" alt="Asiento Premium">
                   </div>
               @endif
@@ -61,7 +61,7 @@
                 </div>
               @else
                 <div class="col asientos no-disponible">
-                    X
+                  <span> {{ $asiento['numeroAsiento'] }}</span>
                     <img src="{{ asset('images/asiento-de-coche2.png') }}" alt="Asiento Básico">
                 </div>
               @endif
