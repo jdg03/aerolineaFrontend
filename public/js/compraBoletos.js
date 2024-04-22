@@ -29,15 +29,19 @@ async function mostrarInformacionAsiento(id) {
          const asientoClickeado = document.querySelector(`[onclick="mostrarInformacionAsiento(${id})"]`);
          asientoClickeado.classList.add('seleccionado');
 
-         const botonComprar = document.querySelector('.contenedor-boton a');
+         const botonComprar = document.getElementById("botonComprar");
+         const botonComprarInvitado = document.getElementById("botonComprarInvitado");
 
         // Cambiar el estilo para mostrar el elemento
-        botonComprar.style.display = 'block';
+         botonComprar.style.display = 'block';
+         botonComprarInvitado.style.display = 'block';
+
 
          //actualiza la ruta del boton comprar
          var idVuelo = window.location.pathname.split('/').pop();//id del vuelo de la url
 
-         document.getElementById('formulario').action = `/realizarCompra/${asiento.idAsiento}/${idVuelo} `;
+         document.getElementById('formularioRegistrado').action = `/realizarCompra/${asiento.idAsiento}/${idVuelo} `;
+         document.getElementById('formularioInvitado').action = `/realizarCompra/${asiento.idAsiento}/${idVuelo} `;
 
     } catch (error) {
         console.error('Error al obtener la información del asiento:', error);

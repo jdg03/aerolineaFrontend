@@ -103,7 +103,8 @@
             </div>
 
             <div class="contenedor-boton">
-              <a class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#compra"> Comprar</a>
+              <a id="botonComprarInvitado" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#compraInvitado"> Comprar como Invitado</a>
+              <a id="botonComprar" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#CompraRegistrado"> Comprar</a>
             </div>
           
 
@@ -117,8 +118,8 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="compra" tabindex="-1" aria-labelledby="modalCrearCuentaLabel" aria-hidden="true">
+<!-- Modal iinvitado -->
+<div class="modal fade" id="compraInvitado" tabindex="-1" aria-labelledby="modalCrearCuentaLabel" aria-hidden="true">
   <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
@@ -133,7 +134,7 @@
                 <img src="{{ asset('images/logo.png') }}" class="mx-auto" width="140px" alt="">
                   <h3 class="text-center text-secondary my-3">Ingrese sus datos</h3>
                   
-                  <form id="formulario" action="{{route('crearCliente')}}" method="POST">
+                  <form id="formularioInvitado" action="{{route('crearCliente')}}" method="POST">
                       @csrf
                       <div class="input-group mb-3">
                           <input type="text" name="nombre" placeholder="Nombre" class="form-control rounded-pill mx-3" required>
@@ -154,7 +155,42 @@
                           <input type="text" name="pasaporte" placeholder="Pasaporte" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                          <input type="password" name="contrasenia" placeholder="Contrasenia" class="form-control rounded-pill mx-3" required>
+
+                        <button id="botonComprar"  type="submit" class="btn btn-primary rounded-pill w-100 mx-3">Comprar</button>
+                      </div>
+                      
+                  </form>
+              </div>
+            </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Modal como usuario registrado -->
+<div class="modal fade" id="CompraRegistrado" tabindex="-1" aria-labelledby="modalCrearCuentaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <H3>Solo para clientes registrados</H3>
+            
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           
+            <div class="container d-flex justify-content-center">
+              <div class="card shadow" style="width: 30rem;">
+                  
+                <img src="{{ asset('images/logo.png') }}" class="mx-auto" width="140px" alt="">
+                  <h3 class="text-center text-secondary my-3">Ingrese sus datos</h3>
+                  
+                  <form id="formularioRegistrado" action="{{route('crearCliente')}}" method="POST">
+                      @csrf
+                      
+                      <div class="input-group mb-3">
+                          <input type="text" name="correo" placeholder="CorreoElectronico" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
 

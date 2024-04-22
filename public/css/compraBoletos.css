@@ -131,7 +131,7 @@
 
     padding: 4%;
     display: grid;
-  	grid-template-columns: 3fr 1fr;
+  	grid-template-columns: 1fr 2fr;
 
   }
 
@@ -155,11 +155,13 @@
     justify-content: center;
     align-items: center;
     align-content: stretch;
+
   }
 
   .contenedor-boton a{
     
     display: none;
+    margin: 1%;
   }
   
 
