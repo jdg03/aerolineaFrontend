@@ -231,6 +231,37 @@ class AdminController extends Controller
             return "Ocurrio un error al crear la ciudad: " . $ex->getCode();
         }
     }
+    public function editarCiudad($id)
+    {
+        $client = new Client();
+        try {
+            $response = $client->request('GET', 'http://localhost:8080/api/ciudades/buscar/' . $id);
+            $ciudad = json_decode($response->getBody(), true);
+            if ($response->getStatusCode() == 200) {
+                return view('ciudades/editar', ['ciudad' => $ciudad]);
+            }
+        } catch (\Exception $ex) {
+            return "Error al obtener ciudad a editar: " . $ex;
+        }
+    }
+    public function actualizarCiudad(Request $request, $id)
+    {
+        $client = new Client();
+        $nombre = $request->input('nombre');
+        try {
+            $response = $client->put('http://localhost:8080/api/ciudades/actualizar/' . $id, [
+                'Content-Type' => 'application/json',
+                'json' => [
+                    'nombre' => $nombre
+                ]
+            ]);
+            if ($response->getStatusCode() == 200) {
+                return redirect('admin');
+            }
+        } catch (\Exception $ex) {
+            return "Error al actualizar ciudad: " . $ex;
+        }
+    }
     public function agregarAeropuerto(Request $request)
     {
         $nombre = $request->input('nombre');

@@ -41,7 +41,11 @@ Route::get('/editar-pais/{id}', [AdminController::class, 'editarPais'])->name('e
 Route::post('/api/actualizar-pais/{id}', [AdminController::class, 'actualizarPais'])->name('actualizarPais'); //actualizar pais
 Route::get('/api/confirm-eliminar-pais/{id}', [AdminController::class, 'verEliminarPais'])->name('verEliminarPais'); //ver pais a eliminar
 Route::get('/api/eliminar-pais/{id}', [AdminController::class, 'eliminarPais'])->name('eliminarPais'); //eliminar un pais
+
+//ciudades
 Route::post('/agregar-ciudad', [AdminController::class, 'agregarCiudad'])->name('agregarCiudad'); //agregar ciudad a un pais
+Route::get('/ciudad/editar/{id}', [AdminController::class, 'editarCiudad'])->name('editarCiudad'); //obtener ciudad
+Route::post('/api/ciudad/actualizar/{id}', [AdminController::class, 'actualizarCiudad'])->name('actualizarCiudad');
 
 //aeropuertos
 Route::post('/agregar-aeropuerto', [AdminController::class, 'agregarAeropuerto'])->name('agregarAeropuerto');
