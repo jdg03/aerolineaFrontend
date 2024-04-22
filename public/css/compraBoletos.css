@@ -173,3 +173,9 @@
 .modal {
   background-color: rgba(rgba(248, 244, 244, 0.4)) !important;
 }
+
+h5{
+  font-family:'Source Sans Pro', sans-serif;
+  display: flex;
+  justify-content: center;
+}

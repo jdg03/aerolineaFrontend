@@ -7,11 +7,15 @@
 </head>
 
 @section('content')
+<h5 style="color: aliceblue">
+  Avion:{{ $Vuelo['avion']['nombre'] }}, Capacidad:</span>{{ $Vuelo['avion']['capacidad'] }}
+</h5>
+
 
 <div class="container contenedor">
-
+ 
     <div class="row">
-
+    
     <div class="lado-izquierdo col-md-5">
 
         <div class="ventanas">       

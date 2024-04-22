@@ -54,5 +54,8 @@ Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos'); 
 Route::get('/asientos/{idAvion}', [compraController::class, 'index'])->name('asientos'); // vista del avion con los asientos respectivos
 
 
-Route::get('/comprarVuelo/{idVuelo}', [compraController::class, 'comprarVuelo'])->name('comprarVuelo');//vista para comprar los asientos
-Route::post('/realizarCompra/{idAsiento}/{idVuelo}', [compraController::class, 'realizarCompra'])->name('realizarCompra'); 
+Route::get('/Comprar/vuelo/{idVuelo}', [compraController::class, 'vistaComprar'])->name('vistaComprar');//vista para comprar los asientos
+
+Route::post('/realizarCompra/{idAsiento}/{idVuelo}', [compraController::class, 'realizarCompra'])->name('realizarCompra'); //metodos para realizar la compra
+Route::post('/compraClienteRegistrado/{idAsiento}/{idVuelo}', [compraController::class, 'compraClienteRegistrado'])->name('compraClienteRegistrado'); //metodos para realizar la compra
+

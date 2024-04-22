@@ -32,7 +32,7 @@
                     <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }} - id: {{ $vuelo['avion']['idAvion'] }}</td>
                     <td>{{ $vuelo['estado'] }}</td>
                     <td>
-                        <a class="comprar" href="{{ route('comprarVuelo', ['idVuelo' => $vuelo['idVuelo']]) }}">Comprar</a>
+                        <a class="comprar" href="{{ route('vistaComprar', ['idVuelo' => $vuelo['idVuelo']]) }}">Comprar</a>
                     </td>
                 </tr>
                 @endforeach
