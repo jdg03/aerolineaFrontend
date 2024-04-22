@@ -31,13 +31,17 @@ class AdminController extends Controller
             $responseCiudades = $client->request('GET', 'http://localhost:8080/api/ciudades');
             $ciudades = json_decode($responseCiudades->getBody(), true);
 
+            $responseVentas = $client->request('GET', 'http://localhost:8080/api/ventas/obtener');
+            $ventas = json_decode($responseVentas->getBody(), true);
+
             return view('admin', [
                 'aviones' => $aviones,
                 'aeropuertos' => $aeropuertos,
                 'clientes' => $clientes,
                 'paises' => $paises,
                 'ciudades' => $ciudades,
-                //'destinos' => $destinos
+                'destinos' => $destinos,
+                'ventas' => $ventas 
             ]);
         } catch (\Exception $ex) {
             return $ex;

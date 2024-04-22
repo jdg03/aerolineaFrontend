@@ -275,7 +275,52 @@
                 </div>
             </div>
         </div>
+
+        {{-- ventas--}}
+      <div class="card shadow mb-5">
+        <div class="card-header" style="background-color: rgb(98, 153, 255)">
+            <h3 class="text-white">Ventas</h3>
+        </div>
+        <div class="card-body">
+            @if ($ventas)
+                <table class="table table-striped">
+                    <thead class="table-success">
+                        <tr>
+                            <th scope="col">ID Venta</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Descuento</th>
+                            <th scope="col">Impuesto</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Cliente/id</th>
+                            <th scope="col">Registrado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($ventas as $venta)
+                            <tr>
+                                <td>{{ $venta['idVenta'] }}</td>
+                                <td>{{ $venta['fecha'][2] }}/{{ $venta['fecha'][1] }}/{{ $venta['fecha'][0] }}</td>
+                                <td>{{ $venta['total'] }}</td>
+                                <td>{{ $venta['descuento'] }}</td>
+                                <td>{{ $venta['impuesto'] }}</td>
+                                <td>{{ $venta['subtotal'] }}</td>
+                                <td>{{ $venta['cliente']['nombre'] }}/{{ $venta['cliente']['idCliente'] }}</td>
+                                <td>{{ $venta['cliente']['clienteRegistrado'] ? 'Sí' : 'No' }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+                <h2 class="text-secondary my-3">No hay ventas registradas.</h2>
+            @endif
+        </div>
+      </div>
+
+
     </div>
+
+      
 
 
 
@@ -445,4 +490,7 @@
             </div>
         </div>
     </div>
+
+  
+    
 @endsection
