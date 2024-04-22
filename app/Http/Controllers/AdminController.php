@@ -37,7 +37,7 @@ class AdminController extends Controller
                 'clientes' => $clientes,
                 'paises' => $paises,
                 'ciudades' => $ciudades,
-                'destinos' => $destinos
+                //'destinos' => $destinos
             ]);
         } catch (\Exception $ex) {
             return $ex;

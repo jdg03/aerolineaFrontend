@@ -133,31 +133,32 @@
                 <img src="{{ asset('images/logo.png') }}" class="mx-auto" width="140px" alt="">
                   <h3 class="text-center text-secondary my-3">Ingrese sus datos</h3>
                   
-                  <form action="{{route('crearCliente')}}" method="POST">
+                  <form id="formulario" action="{{route('crearCliente')}}" method="POST">
                       @csrf
                       <div class="input-group mb-3">
-                          <input type="text" name="nombre" placeholder="Nombre" class="form-control rounded-pill mx-3">
+                          <input type="text" name="nombre" placeholder="Nombre" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                          <input type="text" name="correo" placeholder="CorreoElectronico" class="form-control rounded-pill mx-3">
+                          <input type="text" name="correo" placeholder="CorreoElectronico" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                          <input type="text" name="telefono" placeholder="Telefono" class="form-control rounded-pill mx-3">
+                          <input type="text" name="telefono" placeholder="Telefono" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                          <input type="text" name="direccion" placeholder="Direccion" class="form-control rounded-pill mx-3">
+                          <input type="text" name="direccion" placeholder="Direccion" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                          <input type="text" name="nacionalidad" placeholder="Nacionalidad" class="form-control rounded-pill mx-3">
+                          <input type="text" name="nacionalidad" placeholder="Nacionalidad" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                          <input type="text" name="pasaporte" placeholder="Pasaporte" class="form-control rounded-pill mx-3">
+                          <input type="text" name="pasaporte" placeholder="Pasaporte" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                          <input type="password" name="contrasenia" placeholder="Contrasenia" class="form-control rounded-pill mx-3">
+                          <input type="password" name="contrasenia" placeholder="Contrasenia" class="form-control rounded-pill mx-3" required>
                       </div>
                       <div class="input-group mb-3">
-                        <a id="botonComprar" href="" class="btn btn-primary rounded-pill w-100 mx-3">Comprar</a>
+
+                        <button id="botonComprar"  type="submit" class="btn btn-primary rounded-pill w-100 mx-3">Comprar</button>
                       </div>
                       
                   </form>

@@ -35,7 +35,9 @@ async function mostrarInformacionAsiento(id) {
         botonComprar.style.display = 'block';
 
          //actualiza la ruta del boton comprar
-         document.getElementById('botonComprar').href = `/comprarAsiento/${asiento.idAsiento}`;
+         var idVuelo = window.location.pathname.split('/').pop();//id del vuelo de la url
+
+         document.getElementById('formulario').action = `/realizarCompra/${asiento.idAsiento}/${idVuelo} `;
 
     } catch (error) {
         console.error('Error al obtener la información del asiento:', error);

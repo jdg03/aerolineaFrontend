@@ -5,27 +5,28 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
+
 class compraController extends Controller
 {
 
     //muestra la vista con los asientos respectivos del avion
-    public function index(Request $request, $idAvion){
+    public function comprarVuelo(Request $request, $idVuelo){
 
         $client = new Client();
 
         try {
         
-            $url = "http://localhost:8080/api/aviones/obtenerAsientos/$idAvion";
+            $url = "http://localhost:8080/api/vuelos/buscar/$idVuelo";
             $response = $client->request('GET', $url);
  
      
-            $asientos = json_decode($response->getBody()->getContents(), true);
+            $Vuelo = json_decode($response->getBody()->getContents(), true);
 
             $asientos_primera_clase = [];
             $asientos_premium = [];
             $asientos_basico = [];
 
-            foreach ($asientos as $asiento) {
+            foreach ($Vuelo['avion']['asiento'] as $asiento) {
                 switch ($asiento['clase']['nombre']) {
                     case 'Primera Clase':
                         $asientos_primera_clase[] = $asiento;
@@ -43,23 +44,26 @@ class compraController extends Controller
             }   
  
                     //return $asientos;
-                    return view('compra/compraBoletos', compact('asientos', 'asientos_primera_clase', 'asientos_premium', 'asientos_basico'));
+                    return view('compra/compraBoletos', compact('asientos_primera_clase', 'asientos_premium', 'asientos_basico'));
 
          } catch (\Exception $ex) {
          
-         return "Ha ocurrido un error con el servidor al obtener los datos";
+         return $ex;
          }
     
     }
     
+    public function realizarCompra(Request $request, $idAsiento, $idVuelo) {
 
-    public function comprarAsiento(Request $request, $id) {
-
+        $asientoClient = new Client();
         $client = new Client();
-    
+        $boletoClient = new Client();
+        $ventaClient = new Client();
+
+        // actualizacion del asiento
         try {
-            // Hacer la solicitud put a la API para actualizar el asiento
-            $response = $client->put('http://localhost:8080/api/asientos/actualizar/' . $id, [
+            // Hacer la solicitud put  actualizar el asiento
+            $asientoResponse = $asientoClient->put('http://localhost:8080/api/asientos/actualizar/' . $idAsiento, [
                 'headers' => [
                     'Content-Type' => 'application/json'
                 ],
@@ -67,14 +71,93 @@ class compraController extends Controller
                     'estado' => false 
                 ]
             ]);
-            
-            //recarga la pagina otra vez
-            return back();
-
+    
         } catch (\Exception $ex) {
-            // Manejar errores
-            return $ex;
+           
+            return "Error al actualizar el cliente: " . $ex->getMessage();
         }
+    
+        // Crear al cliente
+        $nombre = $request->input('nombre');
+        $telefono = $request->input('telefono');
+        $correo = $request->input('correo');
+        $direccion = $request->input('direccion');
+        $nacionalidad = $request->input('nacionalidad');
+        $pasaporte = $request->input('pasaporte');
+        
+        try {
+            $clienteResponse = $client->request('POST', 'http://localhost:8080/api/clientes/crear', [
+                'headers' => [
+                    'Content-Type' => 'application/json'
+                ],
+                'json' => [
+                    'nombre' => $nombre,
+                    'telefono' => $telefono,
+                    'correo' => $correo,
+                    'nacionalidad' => $nacionalidad,
+                    'pasaporte' => $pasaporte,
+                    'direccion' => $direccion,
+                    'clienteRegistrado' => false// por defecto
+                ],
+            ]);
+        } catch (\Exception $ex) {
+           
+            return "Error al crear el cliente: " . $ex->getMessage();
+        }
+         //convierte al cliente a Json para acceder a sus propiedades y poder asignarlas a la venta
+         $clienteResponse = json_decode( $clienteResponse->getBody()->getContents());
+   
+          
+
+        // convierte el asiento actualizado a Json para acceder a sus propiedades y poder asignarlas al boleto
+        $asientoResponse = json_decode($asientoResponse->getBody()->getContents());
+        
+        // Crear el boleto
+        try {
+            $boletoResponse =  $boletoClient->request('POST', 'http://localhost:8080/api/boletos/crear', [
+                'headers' => [
+                    'Content-Type' => 'application/json'
+                ],
+                'json' => [
+                    "idVuelo" => $idVuelo, // viene como parametro
+                    "idAsiento" => $asientoResponse->idAsiento,
+                    "precioTotal" => $asientoResponse->clase->precio
+                ]
+            ]);
+        } catch (\Exception $ex) {
+           
+            return "Error al crear el boleto: " . $ex->getMessage();
+        }
+        //convierte al boleto a Json para acceder a sus propiedades y poder asignarlas al detalle de venta
+        $boletoResponse = json_decode($boletoResponse->getBody()->getContents());
+          
+        // Crear la venta
+        try {
+            
+            $ventaResponse = $ventaClient->request('POST', 'http://localhost:8080/api/ventas/crear/' . $clienteResponse->idCliente . '/' . $boletoResponse->precioTotal, [
+                'headers' => [
+                    'Content-Type' => 'application/json'
+                ]
+            ]);            
+            
+        } catch (\Exception $ex) {
+            // Manejar errores en la creación de la venta
+           return "Error al crear la venta: " . $ex->getMessage();
+        }
+
+        //convierte la venta a Json para acceder a sus propiedades y poder asignarlas a detalle de venta
+        $ventaResponse = json_decode($ventaResponse->getBody()->getContents());
+
+        // Crea el detalle de venta
+    
+        // Recargar la página
+        return back();
     }
+    
+
+
+    
+
+
     
 }

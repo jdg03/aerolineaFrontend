@@ -49,4 +49,6 @@ Route::post('/agregar-aeropuerto', [AdminController::class, 'agregarAeropuerto']
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos'); // vista destinos
 Route::get('/asientos/{idAvion}', [compraController::class, 'index'])->name('asientos'); // vista del avion con los asientos respectivos
 
-Route::get('/comprarAsiento/{id}', [compraController::class, 'comprarAsiento'])->name('comprarAsiento'); // actualiza un asiento y cambia el esatdo a false
+
+Route::get('/comprarVuelo/{idVuelo}', [compraController::class, 'comprarVuelo'])->name('comprarVuelo');//vista para comprar los asientos
+Route::post('/realizarCompra/{idAsiento}/{idVuelo}', [compraController::class, 'realizarCompra'])->name('realizarCompra'); 
