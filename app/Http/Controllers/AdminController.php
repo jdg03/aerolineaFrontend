@@ -274,18 +274,37 @@ class AdminController extends Controller
         try {
             $response = $client->request('POST', 'http://localhost:8080/api/aeropuertos/crear', [
                 'Content-Type' => 'application/json',
-                'json' => [
-                    'nombre' => $nombre,
-                    'ciudad' => [
-                        'idCiudad' => $ciudad
-                    ]
-                ]
+               
             ]);
             if ($response->getStatusCode() == 200) {
                 return redirect('admin');
             }
         } catch (\Exception $ex) {
-            return "Error al crear aeropuerto: " . $ex;
+            return "Error al crear el aeropuerto: " . $ex;
+        }
+    }
+
+    
+    //-----------------------------------------------------
+    public function agregarDestinos(Request $request)
+    {
+        
+        $ciudadOrigen = $request->input('ciudadOrigen');
+        $ciudadDestino = $request->input('ciudadDestino');
+        $distancia = $request->input('distancia');
+        $client = new Client();
+
+        try {
+            $response = $client->request('POST', "http://localhost:8080/api/destinos/crear/{$distancia}/{$ciudadOrigen}/{$ciudadDestino}", [
+                'Content-Type' => 'application/json',
+                
+                
+            ]);
+            if ($response->getStatusCode() == 200) {
+                return redirect()->route('admin');
+            }
+        } catch (\Exception $ex) {
+            return "Ocurrio un error al crear el destino: " . $ex->getCode();
         }
     }
 }

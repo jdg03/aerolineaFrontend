@@ -49,6 +49,8 @@ Route::post('/api/ciudad/actualizar/{id}', [AdminController::class, 'actualizarC
 
 //aeropuertos
 Route::post('/agregar-aeropuerto', [AdminController::class, 'agregarAeropuerto'])->name('agregarAeropuerto');
+//destinos
+Route::post('/agregar-destinos', [AdminController::class, 'agregarDestinos'])->name('agregarDestino');
 
 Route::get('/destinos', [DestinoController::class, 'index'])->name('destinos'); // vista destinos
 Route::get('/asientos/{idAvion}', [compraController::class, 'index'])->name('asientos'); // vista del avion con los asientos respectivos

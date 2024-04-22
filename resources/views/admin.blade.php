@@ -128,35 +128,42 @@
                     <h3 class="text-white">Destinos</h3>
                 </div>
                 <div class="card-body">
-                    @if ($destinos)
+                    @if($destinos)
                         <table class="table table-striped">
                             <thead class="table-success">
                                 <tr>
-                                    <th scope="col">CallSign</th>
-                                    <th scope="col">Marca</th>
-                                    <th scope="col">Modelo</th>
-                                    <th scope="col">Capacidad</th>
+                                    <th scope="col">ID Destino</th>
+                                    <th scope="col">Distancia (km)</th>
+                                    <th scope="col">Ciudad Origen</th>
+                                    <th scope="col">Ciudad Destino</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
+                                @foreach ($destinos as $destino)
+                                    <tr>
+                                        <td>{{ $destino['idDestino'] }}</td>
+                                        <td>{{ $destino['distancia'] }}</td>
+                                        <td>{{ $destino['ciudadOrigen']['nombre'] }}</td>
+                                        <td>{{ $destino['ciudadDestino']['nombre'] }}</td>
+                                        <td>
+                                            <!-- Aquí puedes agregar botones de acciones si necesitas -->
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     @else
                         <h2 class="text-secondary my-3">No hay destinos creados.</h2>
                     @endif
-                    <button type="button" class="btn btn-success rounded-pill" data-bs-toggle="modal"
-                        data-bs-target="#modalDestinos">
+                    <button type="button" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#modalDestinos">
                         Nuevo Destino
                     </button>
                 </div>
             </div>
+            
+
+
             {{-- clientes --}}
             {{-- <div class="card shadow mb-5">
                 <div class="card-header bg-warning">
@@ -322,6 +329,7 @@
 
       
 
+ {{-- **************************************************************************************************************************--}}
 
 
     <!-- Modal Aeronaves-->
@@ -393,6 +401,7 @@
             </div>
         </div>
     </div>
+
     {{-- Modal destinos --}}
     <div class="modal fade" id="modalDestinos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -402,15 +411,44 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <form action="{{ route('agregarDestino') }}" method="POST">
+                        @csrf
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="ciudadOrigen" id="ciudadOrigen" aria-label="Ciudad origen">
+                                @foreach ($ciudades as $ciudad)
+                                    <option value="{{ $ciudad['idCiudad'] }}">{{ $ciudad['nombre'] }}</option>
+                                @endforeach
+                            </select>
+                            <label for="ciudadOrigen">Seleccione la ciudad origen</label>
+                        </div>
+                    
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="ciudadDestino" id="ciudadDestino" aria-label="Ciudad destino">
+                                @foreach ($ciudades as $ciudad)
+                                    <option value="{{ $ciudad['idCiudad'] }}">{{ $ciudad['nombre'] }}</option>
+                                @endforeach
+                            </select>
+                            <label for="ciudadDestino">Seleccione la ciudad destino</label>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label for="distancia" class="form-label">Distancia (en kilómetros)</label>
+                            <input type="number" class="form-control" id="distancia" name="distancia" placeholder="Ingrese la distancia" required>
+                        </div>
+                       
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar destino</button>
+                        </div>
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
+    
+
+
     {{-- Modal clientes --}}
     <div class="modal fade" id="modalClientes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
