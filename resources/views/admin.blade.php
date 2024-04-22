@@ -256,7 +256,7 @@
                                         {{-- <td>{{ $ciudad['pais']['nombre'] }}</td> --}}
                                         <td>{{ $ciudad['nombre'] }}</td>
                                         <td>
-                                            <a href="{{ route('editarPais', ['id' => $pais['idPais']]) }}"
+                                            <a href="{{ route('editarCiudad', ['id' => $ciudad['idCiudad']]) }}"
                                                 class="btn rounded-pill btn-outline-primary">Editar</a>
                                             <a href="{{ route('verEliminarAeronave', ['id' => $avion['idAvion']]) }}"
                                                 class="btn rounded-pill btn-danger">Eliminar</a>
