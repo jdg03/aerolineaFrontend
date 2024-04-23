@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="titulo">Próximos Destinos</h1>
+        <h1 class="titulo">Próximos Vuelos</h1>
         <div class="datos">
             <table class="tabla-vuelo">
                 <tr class="encabezado">

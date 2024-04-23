@@ -8,7 +8,7 @@
 
 @section('content')
 <h5 style="color: aliceblue">
-  Avion:{{ $Vuelo['avion']['nombre'] }}, Capacidad:</span>{{ $Vuelo['avion']['capacidad'] }}
+  {{ $Vuelo['avion']['nombre'] }}, Capacidad:</span>{{ $Vuelo['avion']['capacidad'] }}
 </h5>
 
 

@@ -23,9 +23,11 @@
             </div>
         </div>
 
+        
         <div class="text-center">
-            <a href="{{ route('destinos') }}" class="btn btn-outline-light btn-lg">Ver vuelos</a>
+            <a href="{{ route('destinos') }}" class="btn btn-outline-light btn-lg btn-bounce">Ver vuelos</a>
         </div>
+        
         
         
     </div>

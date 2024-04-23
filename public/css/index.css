@@ -30,3 +30,13 @@
 	align-items: center;
 	align-content: stretch;
 }
+
+@keyframes bounce {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-10px); }
+	100% { transform: translateY(0); }
+}
+
+.btn-bounce {
+	animation: bounce 1s infinite;
+}
