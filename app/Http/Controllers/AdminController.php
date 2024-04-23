@@ -34,6 +34,10 @@ class AdminController extends Controller
             $responseVentas = $client->request('GET', 'http://localhost:8080/api/ventas/obtener');
             $ventas = json_decode($responseVentas->getBody(), true);
 
+            $responseVuelos = $client->request('GET', 'http://localhost:8080/api/vuelos/obtener');
+            $vuelos = json_decode($responseVuelos->getBody(), true);
+
+
             return view('admin', [
                 'aviones' => $aviones,
                 'aeropuertos' => $aeropuertos,
@@ -41,7 +45,8 @@ class AdminController extends Controller
                 'paises' => $paises,
                 'ciudades' => $ciudades,
                 'destinos' => $destinos,
-                'ventas' => $ventas 
+                'ventas' => $ventas,
+                'vuelos' => $vuelos
             ]);
         } catch (\Exception $ex) {
             return $ex;
@@ -268,11 +273,11 @@ class AdminController extends Controller
     }
     public function agregarAeropuerto(Request $request)
     {
-        $nombre = $request->input('nombre');
+        $nombre = $request->input('nombreAeropuerto');
         $ciudad = $request->input('ciudad');
         $client = new Client();
         try {
-            $response = $client->request('POST', 'http://localhost:8080/api/aeropuertos/crear', [
+            $response = $client->request('POST', "http://localhost:8080/api/aeropuertos/crear/{$ciudad}/{$nombre}", [
                 'Content-Type' => 'application/json',
                
             ]);
@@ -307,4 +312,38 @@ class AdminController extends Controller
             return "Ocurrio un error al crear el destino: " . $ex->getCode();
         }
     }
+
+  
+
+    public function agregarVuelos(Request $request){
+    
+    $fechaSalida = $request->input('fechaSalida');
+    $fechaLlegada = $request->input('fechaLlegada');
+    $estado = $request->input('estado');
+    $idAvion = $request->input('avion');
+    $idDestino = $request->input('destino');
+
+    $client = new Client();
+
+    try {
+        // Hacer la solicitud POST a la API de vuelos
+        $response = $client->request('POST', "http://localhost:8080/api/vuelos/crear", [
+            'Content-Type' => 'application/json',
+            'json' => [
+                'fechaSalida' => $fechaSalida,
+                'fechaLlegada' => $fechaLlegada,
+                'estado' => $estado,
+                'idAvion' => $idAvion,
+                'idDestino' => $idDestino
+            ]
+        ]);
+
+        if ($response->getStatusCode() == 200) {
+            return redirect()->route('admin');
+        }
+    } catch (\Exception $ex) {
+        return "Ocurrió un error al crear el vuelo: " . $ex->getCode();
+    }
+}
+
 }

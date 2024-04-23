@@ -4,204 +4,8 @@
     <div class="container">
         <h1 class="display-4 text-white mb-5">Administracion del Sistema</h1>
         <div class="card p-5">
-            {{-- vuelos --}}
-            <div class="card shadow mb-5">
-                <div class="card-header" style="background-color: rgb(98, 153, 255)">
-                    <h3 class="text-white">Vuelos</h3>
-                </div>
-                <div class="card-body">
-                    @if ($destinos)
-                        <table class="table table-striped">
-                            <thead class="table-success">
-                                <tr>
-                                    <th scope="col">Numero Vuelo</th>
-                                    <th scope="col">Avion</th>
-                                    <th scope="col">Destino</th>
-                                    <th scope="col">Salida</th>
-                                    <th scope="col">Llegada</th>
-                                    <th scope="col">Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    @else
-                        <h2 class="text-secondary my-3">No hay destinos creados.</h2>
-                    @endif
-                    <button type="button" class="btn text-white border-0 rounded-pill" data-bs-toggle="modal"
-                        data-bs-target="#modalDestinos" style="background-color: rgb(98, 153, 255)">
-                        Nuevo Vuelo
-                    </button>
-                </div>
-            </div>
-            {{-- Aeronaves --}}
-            <div class="card shadow mb-5">
-                <div class="card-header bg-primary">
-                    <h3 class="text-white">Aeronaves</h3>
-                </div>
-                <div class="card-body">
-                    @if ($aviones)
-                        <table class="table table-striped">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Fabricante</th>
-                                    <th scope="col">Modelo</th>
-                                    <th scope="col">Capacidad</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($aviones as $avion)
-                                    <tr>
-                                        <td>{{ $avion['nombre'] }}</td>
-                                        <td>{{ $avion['fabricante'] }}</td>
-                                        <td>{{ $avion['modelo'] }}</td>
-                                        <td>{{ $avion['capacidad'] }}</td>
-                                        <td>
-                                            <a href="{{ route('editarAeronave', ['id' => $avion['idAvion']]) }}"
-                                                class="btn rounded-pill btn-outline-primary">Editar</a>
-                                            <a href="{{ route('verEliminarAeronave', ['id' => $avion['idAvion']]) }}"
-                                                class="btn rounded-pill btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    @else
-                        <h2 class="text-secondary my-3">No hay aeronaves en registro.</h2>
-                    @endif
-                    <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal"
-                        data-bs-target="#modalAeronaves">
-                        Nueva Aeronave
-                    </button>
-                </div>
-            </div>
-            {{-- Aeropuertos --}}
-            <div class="card shadow mb-5">
-                <div class="card-header bg-danger">
-                    <h3 class="text-white">Aeropuertos</h3>
-                </div>
-                <div class="card-body">
-                    @if ($aeropuertos)
-                        <table class="table table-striped">
-                            <thead class="table-danger">
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Ciudad</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($aeropuertos as $aeropuerto)
-                                    <tr>
-                                        <td>{{$aeropuerto['nombre']}}</td>
-                                        <td>{{$aeropuerto['ciudad']['nombre']}}</td>
-                                        <td>
-                                            <a href="" class="btn btn-outline-primary">Editar</a>
-                                            <a href="" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    @else
-                        <h2 class="text-secondary my-3">No hay aeropuertos creados.</h2>
-                    @endif
-                    <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal"
-                        data-bs-target="#modalAeropuertos">
-                        Nuevo Aeropuerto
-                    </button>
-                </div>
-            </div>
-            {{-- destinos --}}
-            <div class="card shadow mb-5">
-                <div class="card-header bg-success">
-                    <h3 class="text-white">Destinos</h3>
-                </div>
-                <div class="card-body">
-                    @if($destinos)
-                        <table class="table table-striped">
-                            <thead class="table-success">
-                                <tr>
-                                    <th scope="col">ID Destino</th>
-                                    <th scope="col">Distancia (km)</th>
-                                    <th scope="col">Ciudad Origen</th>
-                                    <th scope="col">Ciudad Destino</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($destinos as $destino)
-                                    <tr>
-                                        <td>{{ $destino['idDestino'] }}</td>
-                                        <td>{{ $destino['distancia'] }}</td>
-                                        <td>{{ $destino['ciudadOrigen']['nombre'] }}</td>
-                                        <td>{{ $destino['ciudadDestino']['nombre'] }}</td>
-                                        <td>
-                                            <!-- Aquí puedes agregar botones de acciones si necesitas -->
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    @else
-                        <h2 class="text-secondary my-3">No hay destinos creados.</h2>
-                    @endif
-                    <button type="button" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#modalDestinos">
-                        Nuevo Destino
-                    </button>
-                </div>
-            </div>
-            
-
-
-            {{-- clientes --}}
-            {{-- <div class="card shadow mb-5">
-                <div class="card-header bg-warning">
-                    <h3 class="text-white">Clientes</h3>
-                </div>
-                <div class="card-body">
-                    @if ($clientes)
-                        <table class="table table-striped">
-                            <thead class="table-warning">
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Direccion</th>
-                                    <th scope="col">Nacionalidad</th>
-                                    <th scope="col">Pasaporte</th>
-                                    <th scope="col">Operaciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($clientes as $cliente)
-                                    <td>{{ $cliente['nombre'] }}</td>
-                                    <td>{{ $cliente['correo'] }}</td>
-                                    <td>{{ $cliente['direccion'] }}</td>
-                                    <td>{{ $cliente['nacionalidad'] }}</td>
-                                    <td>{{ $cliente['pasaporte'] }}</td>
-                                    <td>
-                                        <a href="" class="btn rounded-pill btn-outline-primary">Ver Detalles</a>
-                                    </td>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    @else
-                        <h2 class="my-3 text-secondary">Aun no hay clientes registrados.</h2>
-                    @endif
-                </div>
-            </div> --}}
-            {{-- paises --}}
-            <div class="card shadow mb-5">
+              {{-- paises --}}
+              <div class="card shadow mb-5">
                 <div class="card-header bg-secondary">
                     <h3 class="text-white">Paises</h3>
                 </div>
@@ -265,7 +69,7 @@
                                         <td>
                                             <a href="{{ route('editarCiudad', ['id' => $ciudad['idCiudad']]) }}"
                                                 class="btn rounded-pill btn-outline-primary">Editar</a>
-                                            <a href="{{ route('verEliminarAeronave', ['id' => $avion['idAvion']]) }}"
+                                            <a href="{{ route('verEliminarAeronave', ['id' => $ciudad['idCiudad']]) }}"
                                                 class="btn rounded-pill btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
@@ -281,11 +85,222 @@
                     </button>
                 </div>
             </div>
+
+             {{-- Aeropuertos --}}
+             <div class="card shadow mb-5">
+                <div class="card-header bg-danger">
+                    <h3 class="text-white">Aeropuertos</h3>
+                </div>
+                <div class="card-body">
+                    @if ($aeropuertos)
+                        <table class="table table-striped">
+                            <thead class="table-danger">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Ciudad</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($aeropuertos as $aeropuerto)
+                                    <tr>
+                                        <td>{{$aeropuerto['nombre']}}</td>
+                                        <td>{{$aeropuerto['ciudad']['nombre']}}</td>
+                                        <td>
+                                            <a href="" class="btn btn-outline-primary">Editar</a>
+                                            <a href="" class="btn btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h2 class="text-secondary my-3">No hay aeropuertos creados.</h2>
+                    @endif
+                    <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#modalAeropuertos">
+                        Nuevo Aeropuerto
+                    </button>
+                </div>
+            </div>
+
+             {{-- Aeronaves --}}
+             <div class="card shadow mb-5">
+                <div class="card-header bg-primary">
+                    <h3 class="text-white">Aeronaves</h3>
+                </div>
+                <div class="card-body">
+                    @if ($aviones)
+                        <table class="table table-striped">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Fabricante</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Capacidad</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($aviones as $avion)
+                                    <tr>
+                                        <td>{{ $avion['nombre'] }}</td>
+                                        <td>{{ $avion['fabricante'] }}</td>
+                                        <td>{{ $avion['modelo'] }}</td>
+                                        <td>{{ $avion['capacidad'] }}</td>
+                                        <td>
+                                            <a href="{{ route('editarAeronave', ['id' => $avion['idAvion']]) }}"
+                                                class="btn rounded-pill btn-outline-primary">Editar</a>
+                                            <a href="{{ route('verEliminarAeronave', ['id' => $avion['idAvion']]) }}"
+                                                class="btn rounded-pill btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h2 class="text-secondary my-3">No hay aeronaves en registro.</h2>
+                    @endif
+                    <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#modalAeronaves">
+                        Nueva Aeronave
+                    </button>
+                </div>
+            </div>
+
+             {{-- destinos --}}
+            <div class="card shadow mb-5">
+                <div class="card-header bg-success">
+                    <h3 class="text-white">Destinos</h3>
+                </div>
+                <div class="card-body">
+                    @if($destinos)
+                        <table class="table table-striped">
+                            <thead class="table-success">
+                                <tr>
+                                    <th scope="col">ID Destino</th>
+                                    <th scope="col">Distancia (km)</th>
+                                    <th scope="col">Ciudad Origen</th>
+                                    <th scope="col">Ciudad Destino</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($destinos as $destino)
+                                    <tr>
+                                        <td>{{ $destino['idDestino'] }}</td>
+                                        <td>{{ $destino['distancia'] }}</td>
+                                        <td>{{ $destino['ciudadOrigen']['nombre'] }}</td>
+                                        <td>{{ $destino['ciudadDestino']['nombre'] }}</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h2 class="text-secondary my-3">No hay destinos creados.</h2>
+                    @endif
+                    <button type="button" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#modalDestinos">
+                        Nuevo Destino
+                    </button>
+                </div>
+            </div>
+           
+
+              
+            {{-- vuelos --}}
+            <div class="card shadow mb-5">
+                <div class="card-header" style="background-color: rgb(98, 153, 255)">
+                    <h3 class="text-white">Vuelos</h3>
+                </div>
+                <div class="card-body">
+                    @if ($vuelos)
+                        <table class="table table-striped">
+                            <thead class="table-success">
+                                <tr>
+                                    <th scope="col">Numero Vuelo</th>
+                                    <th scope="col">Avion</th>
+                                    <th scope="col">Destino</th>
+                                    <th scope="col">Salida</th>
+                                    <th scope="col">Llegada</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($vuelos as $vuelo)
+                                    <tr>
+                                        <td>{{ $vuelo['idVuelo'] }}</td>
+                                        <td>{{ $vuelo['avion']['nombre'] }}</td>
+                                        <td>{{ $vuelo['destino']['ciudadOrigen']['nombre'] }} - {{ $vuelo['destino']['ciudadDestino']['nombre'] }}</td>
+                                        <td>{{ $vuelo['fechaSalida'][2] }}/{{ $vuelo['fechaSalida'][1] }}/{{ $vuelo['fechaSalida'][0] }}</td>
+                                        <td>{{ $vuelo['fechaLlegada'][2] }}/{{ $vuelo['fechaLlegada'][1] }}/{{ $vuelo['fechaLlegada'][0] }}</td>
+                                        <td>{{ $vuelo['estado'] }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h2 class="text-secondary my-3">No hay vuelos disponibles.</h2>
+                    @endif
+                    <button type="button" class="btn text-white border-0 rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#modalVuelos" style="background-color: rgb(98, 153, 255)">
+                        Nuevo Vuelo
+                    </button>
+                </div>
+            </div>
+            
+          
+           
+           
+            
+
+
+            {{-- clientes --}}
+            {{-- <div class="card shadow mb-5">
+                <div class="card-header bg-warning">
+                    <h3 class="text-white">Clientes</h3>
+                </div>
+                <div class="card-body">
+                    @if ($clientes)
+                        <table class="table table-striped">
+                            <thead class="table-warning">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Direccion</th>
+                                    <th scope="col">Nacionalidad</th>
+                                    <th scope="col">Pasaporte</th>
+                                    <th scope="col">Operaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($clientes as $cliente)
+                                    <td>{{ $cliente['nombre'] }}</td>
+                                    <td>{{ $cliente['correo'] }}</td>
+                                    <td>{{ $cliente['direccion'] }}</td>
+                                    <td>{{ $cliente['nacionalidad'] }}</td>
+                                    <td>{{ $cliente['pasaporte'] }}</td>
+                                    <td>
+                                        <a href="" class="btn rounded-pill btn-outline-primary">Ver Detalles</a>
+                                    </td>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h2 class="my-3 text-secondary">Aun no hay clientes registrados.</h2>
+                    @endif
+                </div>
+            </div> --}}
+          
+
+            
         </div>
+        
 
         {{-- ventas--}}
-      <div class="card shadow mb-5">
-        <div class="card-header" style="background-color: rgb(98, 153, 255)">
+      <div class="card shadow mb-5" style="margin-top: 3%">
+        <div class="card-header" style="background-color: rgb(238, 225, 51)">
             <h3 class="text-white">Ventas</h3>
         </div>
         <div class="card-body">
@@ -378,10 +393,7 @@
                 <div class="modal-body">
                     <form action="{{route('agregarAeropuerto')}}" method="POST">
                         @csrf
-                        <div class="input-group mb-3">
-                            <input type="text" name="nombre" placeholder="Nombre del aeropuerto"
-                                class="form-control">
-                        </div>
+        
                         <div class="form-floating">
                             <select class="form-select" name="ciudad" id="floatingSelect" aria-label="Floating label select example">
                                 @foreach ($paises as $pais)
@@ -391,6 +403,11 @@
                                 @endforeach
                             </select>
                             <label for="floatingSelect">Seleccione la ciudad del aeropuerto</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nombreAeropuerto" id="nombreAeropuerto"placeholder="">
+                            <label for="floatingInput">Nombre del Aeropuerto</label>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
@@ -467,6 +484,7 @@
             </div>
         </div>
     </div>
+
     {{-- Modal paises --}}
     <div class="modal fade" id="modalPaises" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -515,7 +533,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="nombreCiudad" id="floatingInput"
-                                placeholder="name@example.com">
+                                placeholder="Nombre de la Ciudad">
                             <label for="floatingInput">Nombre de la Ciudad</label>
                         </div>
                         <div class="modal-footer">
@@ -528,6 +546,63 @@
             </div>
         </div>
     </div>
+
+     {{-- Modal Vuelos --}}
+     <div class="modal fade" id="modalVuelos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Vuelo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('agregarVuelo') }}" method="POST">
+                        @csrf
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="destino" id="ciudadOrigen" aria-label="Ciudad origen">
+                                @foreach ($destinos as $destino)
+                                    <option value="{{ $destino['idDestino'] }}">{{ $destino['ciudadOrigen']['nombre'] }}-{{ $destino['ciudadDestino']['nombre'] }}</option>
+                                @endforeach
+                            </select>
+                            <label for="Destinos">Seleccione el destino</label>
+                        </div>
+                    
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="avion" id="avion" aria-label="Ciudad destino">
+                                @foreach ($aviones as $avion)
+                                    <option value="{{ $avion['idAvion'] }}">{{ $avion['nombre'] }}</option>
+                                @endforeach
+                            </select>
+                            <label for="ciudadDestino">Seleccione el avion</label>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <select class="form-select" name="estado" id="avion" aria-label="Ciudad destino">
+                                <option value="Programado">Programado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="fechaSalida" class="form-label">Fecha de Salida</label>
+                            <input type="date" class="form-control" id="fechaSalida" name="fechaSalida" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="fechaLlegada" class="form-label">Fecha de Llegada</label>
+                            <input type="date" class="form-control" id="fechaLlegada" name="fechaLlegada" required>
+                        </div>
+                       
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar vuelo</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
   
     

@@ -17,7 +17,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="btn  rounded-pill text-white border-0 me-3"
-                        href="">Precios</a>
+                        href="">Ventas</a>
                 </li>
                 
                 <li class="nav-item">

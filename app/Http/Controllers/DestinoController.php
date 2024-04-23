@@ -13,7 +13,7 @@ class DestinoController extends Controller
 
         try {
         
-         $response = $client->request('GET', 'http://localhost:8080/api/vuelos');
+         $response = $client->request('GET', 'http://localhost:8080/api/vuelos/obtener');
  
      
          $vuelos = json_decode($response->getBody()->getContents(), true);

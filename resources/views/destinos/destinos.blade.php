@@ -25,11 +25,11 @@
                 @foreach($vuelos as $vuelo)
                 <tr>
                     <td>{{ $vuelo['idVuelo'] }}</td>
-                    <td>{{ $vuelo['destino']['ciudadOrigen']['nombre'] }}, {{ $vuelo['destino']['ciudadOrigen']['idCiudad'] }}</td>
-                    <td>{{ $vuelo['fechaSalida'][2] }}-{{ $vuelo['fechaSalida'][1] }}-{{ $vuelo['fechaSalida'][0] }}</td>
-                    <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}, {{ $vuelo['destino']['ciudadDestino']['idCiudad'] }}</td>
+                    <td>{{ $vuelo['destino']['ciudadOrigen']['nombre'] }}</td>
+                    <td>{{ $vuelo['fechaSalida'][2] }}-{{ $vuelo['fechaSalida'][1] }}</td>
+                    <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}</td>
                     <td>{{ $vuelo['fechaLlegada'][2] }}-{{ $vuelo['fechaLlegada'][1] }}-{{ $vuelo['fechaLlegada'][0] }}</td>
-                    <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }} - id: {{ $vuelo['avion']['idAvion'] }}</td>
+                    <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }}</td>
                     <td>{{ $vuelo['estado'] }}</td>
                     <td>
                         <a class="comprar" href="{{ route('vistaComprar', ['idVuelo' => $vuelo['idVuelo']]) }}">Comprar</a>
