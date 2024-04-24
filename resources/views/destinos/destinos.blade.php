@@ -18,6 +18,7 @@
                     <th>fecha de Salida</th>
                     <th>Destino</th>
                     <th>fecha de llegada</th>
+                    <th>Distancia</th>
                     <th>Aeronave</th>
                     <th>Estado</th>
                     <th></th>
@@ -29,6 +30,7 @@
                     <td>{{ implode('-', $vuelo['fechaSalida']) }}</td>
                     <td>{{ $vuelo['destino']['ciudadDestino']['nombre'] }}</td>
                     <td>{{ implode('-', $vuelo['fechaLlegada']) }}</td>
+                    <td>{{ $vuelo['destino']['distancia'] }}</td>
                     <td>{{ $vuelo['avion']['nombre'] }} - {{ $vuelo['avion']['modelo'] }}</td>
                     <td>{{ $vuelo['estado'] }}</td>
                     <td>

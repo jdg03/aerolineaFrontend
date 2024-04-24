@@ -121,11 +121,12 @@ class compraController extends Controller
          // Crear la venta
          try {
              
-             $ventaResponse = $ventaClient->request('POST', 'http://localhost:8080/api/ventas/crear/' . $clienteResponse->idCliente . '/' . $boletoResponse->precioTotal, [
-                 'headers' => [
-                     'Content-Type' => 'application/json'
-                 ]
-             ]);            
+            $ventaResponse = $ventaClient->request('POST', 'http://localhost:8080/api/ventas/crear/' . $clienteResponse->idCliente . '/' . $boletoResponse->precioTotal . '/' . $idVuelo, [
+                'headers' => [
+                    'Content-Type' => 'application/json'
+                ]
+            ]);
+                      
              
          } catch (\Exception $ex) {
              // Manejar errores en la creación de la venta
@@ -233,11 +234,12 @@ class compraController extends Controller
         // Crear la venta
         try {
             
-            $ventaResponse = $ventaClient->request('POST', 'http://localhost:8080/api/ventas/crear/' . $clienteResponse->idCliente . '/' . $boletoResponse->precioTotal, [
+            $ventaResponse = $ventaClient->request('POST', 'http://localhost:8080/api/ventas/crear/' . $clienteResponse->idCliente . '/' . $boletoResponse->precioTotal . '/' . $idVuelo, [
                 'headers' => [
                     'Content-Type' => 'application/json'
                 ]
-            ]);            
+            ]);
+                      
             
         } catch (\Exception $ex) {
             // Manejar errores en la creación de la venta

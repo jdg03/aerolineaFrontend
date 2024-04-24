@@ -1,3 +1,5 @@
+var idVuelo = window.location.pathname.split('/').pop();//id del vuelo de la url
+
 async function mostrarInformacionAsiento(id) {
     try {
         const response = await fetch(`http://localhost:8080/api/asientos/buscar/${id}`);
@@ -38,8 +40,8 @@ async function mostrarInformacionAsiento(id) {
 
 
          //actualiza la ruta del boton comprar
-         var idVuelo = window.location.pathname.split('/').pop();//id del vuelo de la url
 
+         console.log(asiento.idAsiento, asiento.numeroAsiento);
          
          document.getElementById('formularioInvitado').action = `/realizarCompra/${asiento.idAsiento}/${idVuelo} `;
          document.getElementById('formularioRegistrado').action = `/compraClienteRegistrado/${asiento.idAsiento}/${idVuelo} `;
