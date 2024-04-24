@@ -310,10 +310,10 @@
                         <tr>
                             <th scope="col">ID Venta</th>
                             <th scope="col">Fecha</th>
-                            <th scope="col">Total</th>
+                            <th scope="col">Subtotal</th>
                             <th scope="col">Descuento</th>
                             <th scope="col">Impuesto</th>
-                            <th scope="col">Subtotal</th>
+                            <th scope="col">Total</th>
                             <th scope="col">Cliente/id</th>
                             <th scope="col">Registrado</th>
                         </tr>
@@ -323,12 +323,12 @@
                             <tr>
                                 <td>{{ $venta['idVenta'] }}</td>
                                 <td>{{ $venta['fecha'][2] }}/{{ $venta['fecha'][1] }}/{{ $venta['fecha'][0] }}</td>
-                                <td>{{ $venta['total'] }}</td>
+                                <td>{{ $venta['subtotal'] }}</td>
                                 <td>{{ $venta['descuento'] }}</td>
                                 <td>{{ $venta['impuesto'] }}</td>
-                                <td>{{ $venta['subtotal'] }}</td>
+                                <td>{{ $venta['total'] }}</td>
                                 <td>{{ $venta['cliente']['nombre'] }}/{{ $venta['cliente']['idCliente'] }}</td>
-                                <td>{{ $venta['cliente']['clienteRegistrado'] ? 'Sí' : 'No' }}</td>
+                                <td>{{ $venta['cliente']['clienteRegistrado'] ? 'Sí' : 'No' }}</td>  
                             </tr>
                         @endforeach
                     </tbody>
